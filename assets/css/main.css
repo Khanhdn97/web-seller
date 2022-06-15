@@ -1,0 +1,15 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+header .container .navbar {
+  display: flex;
+  justify-content: space-between;
+}
+/*# sourceMappingURL=main.css.map */
