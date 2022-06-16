@@ -1,5 +1,5 @@
 function ProductList (){
-    this.Array = [];
+    this.ArrayP = [];
     this.getList = function(){
         return axios({
             method : 'get',

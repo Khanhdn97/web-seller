@@ -1,17 +1,37 @@
+
 const productList = new ProductList();
 
+function renderSlick(){
+        $('.slider-for').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.slider-nav'
+        });
+        $('.slider-nav').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            asNavFor: '.slider-for',
+            dots: true,
+            centerMode: true,
+            focusOnSelect: true
+        });
+}
 
-
-function getProductList(list) {
-    list.getList().then(function (result) {
-        list.Array = result.data;
-        // showProductList(list.Array);
-    }).catch(function (error) {
+function getProductList() {
+    const promise = productList.getList();
+    promise.then(function (result) {
+        result.data.map(function(product,index){
+            productList.ArrayP[index] = product;
+        })
+        showProductList(result.data)
+    })
+    promise.catch(function (error) {
         console.log(error);
     })
 }
-getProductList(productList);
-console.log(productList.Array)
+
 function showProductList(list) {
     var content = "";
     var content2 = "";
@@ -19,8 +39,9 @@ function showProductList(list) {
     <div id="bigIMG" class="slider-for"></div>
     <div id="smallIMG" class="slider-nav"></div>
     `
+
     list.map(function (product) {
-        console.log("chạy");
+        console.log("chạy")
         content += `
         <div class="for__item">
             <div class="item__img">
@@ -47,4 +68,8 @@ function showProductList(list) {
     });
     document.querySelector('#bigIMG').innerHTML = content;
     document.querySelector('#smallIMG').innerHTML = content2;
+    renderSlick();
 }
+getProductList();
+console.log(productList);
+console.log(productList.ArrayP)
