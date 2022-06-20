@@ -41,7 +41,6 @@ function showProductList(list) {
     `
 
     list.map(function (product) {
-        console.log("chạy")
         content += `
         <div class="for__item">
             <div class="item__img">
