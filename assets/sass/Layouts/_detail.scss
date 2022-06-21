@@ -1,9 +1,9 @@
-.shop{
+.detail{
     background-color: aquamarine;
     .slider-for{
         .for__item{
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             overflow: hidden;
             
             .item__img{
@@ -11,12 +11,13 @@
                 align-items: center;
                 overflow: hidden;
                 justify-content: center;
-                @include Size(450px,300px,0,0);
+                @include Size(60%,300px,0);
                 img{
-                    @include Size(600px,400px,0,0);
+                    @include Size(600px,400px,0);
                 }
             }
-            .item__text{      
+            .item__text{
+                @include Size(30%,300px,0);      
             }
         }
     }
@@ -27,7 +28,7 @@
             justify-content: center;
             overflow: hidden;
             img{
-                @include Size(100px,80px,0,0);   
+                @include Size(100px,80px,0);   
             }
         }
     }

@@ -1,6 +1,8 @@
-@mixin Size($w,$h,$pd,$mg) {
+@mixin Size($w,$h,$pd) {
     width: $w;
     height: $h;
     padding: $pd;
-    margin: $mg;
+}
+@mixin styleText(){
+    
 }

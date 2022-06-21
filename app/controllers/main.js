@@ -34,7 +34,7 @@ function getProductList() {
 function showProductList(list) {
   var content = "";
   var content2 = "";
-  document.getElementById("shopWatch").innerHTML = `
+  document.getElementById("watchDetail").innerHTML = `
     <div id="bigIMG" class="slider-for"></div>
     <div id="smallIMG" class="slider-nav"></div>
     `;
@@ -100,11 +100,11 @@ function renderCart(img, name, price) {
             </td>
         </tr>
         `;
-        console.log(document.getElementById('abc'));
+    console.log(document.getElementById('abc'));
 
   }
   );
-  document.getElementById("mytbody").innerHTML = ele; 
+  document.getElementById("mytbody").innerHTML = ele;
 }
 getProductList();
 console.log(productList);
