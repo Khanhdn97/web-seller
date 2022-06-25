@@ -1,23 +1,5 @@
 const productList = new ProductList();
 
-function renderSlick() {
-  $(".slider-for").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    fade: true,
-    asNavFor: ".slider-nav",
-  });
-  $(".slider-nav").slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    asNavFor: ".slider-for",
-    dots: true,
-    centerMode: true,
-    focusOnSelect: true,
-  });
-}
-
 function getProductList() {
   const promise = productList.getList();
   promise.then(function (result) {
@@ -30,54 +12,124 @@ function getProductList() {
     console.log(error);
   });
 }
-
 function showProductList(list) {
-  var content = "";
-  var content2 = "";
-  document.getElementById("watchDetail").innerHTML = `
-    <div id="bigIMG" class="slider-for"></div>
-    <div id="smallIMG" class="slider-nav"></div>
-    `;
-
+  var contentShop = "";
+  var contentDetail1 = "";
+  var contentDetail2 = "";
   list.map(function (product) {
-    console.log("chạy");
-    content += `
-        <div class="for__item">
-            <div class="item__img">
-                <img src="${product.img}"alt="">
-            </div>
-            <div class="item__text">
-                <p>Tên: ${product.name} </p>
-                <p>Hãng: ${product.brand} </p>
-                <p>Giá: ${product.price}</p>
-                <p>Kích cỡ: ${product.size}</p>
-                <p>Loại máy: ${product.model}</p>
-                <p>Loại dây: ${product.strap}</p>
-                <p>Mô tả: ${product.desc}</p>
-            </div>
-            <div>
-                <button class = "btn btn-info" onclick= "renderCart(
-                '${product.img}',
-                '${product.name}',
-                '${product.price}')">
+    contentShop += `
+      <div class="watch__item" data-toggle="modal" data-target="#exampleModal${product.id}">
+        <div class="watch__img">
+          <img src="${product.img}" alt="">
+        </div>
+        <div class="watch__text">
+          <h4>${product.name}</h4>
+          <p>-${product.price} $-</p>
+        </div>
+      </div>
+    `;
+    contentDetail1 = `
+    <div class="modal fade " id="exampleModal${product.id}" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="detail">
+              <div class="detail__left">
+                <div class="swiper mySwiper2${product.id} big__img">
+                  <div id="big_img${product.id}" class="swiper-wrapper">
+                  </div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                </div>
+                <div class="swiper mySwiper${product.id} small__img">
+                  <div id="small_img${product.id}" class="swiper-wrapper">
+                  </div>
+                </div>
+              </div>
+            <div class="detail__right">
+                <div class="detail__text">
+                    <p>Tên: ${product.name} </p>
+                    <p>Hãng: ${product.brand} </p>
+                    <p>Giá: ${product.price}</p>
+                    <p>Kích cỡ: ${product.size}</p>
+                    <p>Loại máy: ${product.model}</p>
+                    <p>Loại dây: ${product.strap}</p>
+                    <p>Mô tả: ${product.desc}</p>
+                </div>
+                <div class="detail__Add">
+                  <button class="btn btn-info" onclick="renderCart(
+                    '${product.img}',
+                    '${product.name}',
+                    '${product.price}')">
                     Add
                     <i class="fa fa-plus"></i>
-                </button>
-            </div>
-        </div>
-        `;
-    content2 += `
-            <div class="nav__item">
-                    <div class="nav__img">
-                        <img src="${product.img}" alt="">
-                    </div>
+                  </button>
                 </div>
-        `;
-  });
-  document.querySelector("#bigIMG").innerHTML = content;
-  document.querySelector("#smallIMG").innerHTML = content2;
-  renderSlick();
+                <button type="button" class="close" data-dismiss="modal">
+                  <span>×</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    contentDetail2 = printImagesItem(product.imgDetail);
+
+
+    document.getElementById("detail_watch").innerHTML += contentDetail1;
+    document.getElementById(`big_img${product.id}`).innerHTML = contentDetail2;
+    document.getElementById(`small_img${product.id}`).innerHTML = contentDetail2;
+    renderSwiper(product.id);
+  })
+  document.getElementById('shop_watch').innerHTML = contentShop;
+  
 }
+function printImagesItem(link) {
+  var n = 0;
+  var content = ""
+  for (let i = 0; i <= link.length; i++) {
+    var str = "";
+
+    if (link[i] == ';' || link[i] == undefined) {
+
+      for (let a = n; a < i; a++) {
+
+        str += link[a];
+
+      }
+      n = ++i;
+      content += `<div class="swiper-slide">
+                  <img src="${str}"/>
+                </div>
+      `
+    }
+  }
+  return content;
+}
+function renderSwiper(id) {
+  for(var i = 1; i<= id; i++){
+    var swiper = new Swiper(`.mySwiper${i}`, {
+      spaceBetween: 20,
+      slidesPerView: "auto",
+    });
+    var swiper2 = new Swiper(`.mySwiper2${i}`, {
+      spaceBetween: 0,
+      keyboard: {
+          enabled: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper,
+        autoScrollOffset: 1,
+      },
+      
+    });
+  }
+}
+
 const cartItem = [];
 function renderCart(img, name, price) {
   cartItem.push({
@@ -106,6 +158,8 @@ function renderCart(img, name, price) {
   );
   document.getElementById("mytbody").innerHTML = ele;
 }
+
+
+
 getProductList();
-console.log(productList);
-console.log(productList.ArrayP);
+

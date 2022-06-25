@@ -1,34 +1,60 @@
-.detail{
-    background-color: aquamarine;
-    .slider-for{
-        .for__item{
-            display: flex;
-            justify-content: space-between;
-            overflow: hidden;
-            
-            .item__img{
-                display: flex;
-                align-items: center;
-                overflow: hidden;
-                justify-content: center;
-                @include Size(60%,300px,0);
-                img{
-                    @include Size(600px,400px,0);
+.detail__watch {
+    .detail {
+        overflow: hidden;
+        @include styleDisplay(flex, unset, space-around);
+        @include Size(100%, 100%, 20px);
+        margin: 20px;
+        .detail__left {
+            @include Size(55%, 90%, 0);
+            .big__img {
+                @include Size(100%, 65vh, 0);
+                img {
+                    width: 100%;
                 }
             }
-            .item__text{
-                @include Size(30%,300px,0);      
+            .small__img {
+                height: 100%;
+                margin-top: 20px;
+                border-top: 1px solid rgba(162, 160, 160, 0.3);
+                border-bottom: 1px solid rgba(162, 160, 160, 0.3);
+                .swiper-wrapper{
+                    justify-content: center;
+                    .swiper-slide {
+                        overflow: hidden;
+                        @include Size(80px, 10vh, 0);
+                        border: 1px solid black;
+                        margin-right: 20px;
+                        transition: all 0.3s;
+                        transform: scale(0.8);
+                        img {
+                            display: block;
+                            @include Size(100%,100%,0);
+                        }
+                        &:hover{
+                            opacity: 1;
+                        }
+                        &:focus{
+                            transform: scale(1);
+                        }
+                    }
+                    .swiper-slide-thumb-active{
+                        transform: scale(1);
+                        border: 3px solid black;
+                    }
+                }
             }
         }
-    }
-    .slider-nav{
-        .nav__img{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            img{
-                @include Size(100px,80px,0);   
+        .detail__right {
+            @include styleDisplay(flex, unset, space-between);
+            @include Size(30%, unset, 20px 0);
+            flex-direction: column;
+            position: relative;
+            .close{
+                position: absolute;
+                top: -5%;
+                right: 0;
+                font-size: 4rem;
+                display: block;
             }
         }
     }

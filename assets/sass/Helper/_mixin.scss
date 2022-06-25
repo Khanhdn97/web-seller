@@ -3,6 +3,13 @@
     height: $h;
     padding: $pd;
 }
-@mixin styleText(){
-    
+@mixin styleText($fs, $fw, $color){
+    font-size: $fs;
+    font-weight: $fw;
+    color: $color;
+}
+@mixin styleDisplay($dis,$align,$just) {
+    display: $dis;
+    align-items: $align;
+    justify-content: $just;
 }

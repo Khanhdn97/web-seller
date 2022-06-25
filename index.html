@@ -21,12 +21,13 @@
   <!-- Slick Slider -->
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <!-- Main css -->
   <link rel="stylesheet" href="./assets/css/main.css" />
 </head>
 
-<body style="background-color: rgba(177, 176, 176, 0.888)">
+<body>
   <header>
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -39,111 +40,19 @@
     </div>
   </header>
 
-  <section>
-    <div id="watchShop" class="shop container">
-      <div class="watch__item">
-        <div class="shop__img">
-          <img src="https://rolex.dafc.com.vn/wp-content/uploads/watch-assets-front-facing/landscape_assets/m226658-0001_modelpage_front_facing_landscape.png" alt="">
-        </div>
-        <div class="shop__text">
-          <h4>Saga orient thăng long 1010</h4>
-          <p>-1000 $-</p>
-        </div>
-      </div>
-      <div class="watch__item">
-        <div class="shop__img">
-          <img src="https://rolex.dafc.com.vn/wp-content/uploads/watch-assets-front-facing/landscape_assets/m116680-0002_modelpage_front_facing_landscape.png" alt="">
-        </div>
-        <div class="shop__text">
-          <h2>Saga</h2>
-          <p>-1000$-</p>
-        </div>
-      </div>
-      <div class="watch__item">
-        <div class="shop__img">
-          <img src="https://cdn3.dhht.vn/wp-content/uploads/2017/07/AE-1200WHD-1AVDF-399x399.jpg" alt="">
-        </div>
-        <div class="shop__text">
-          <h2>Saga</h2>
-          <p>1000$</p>
-        </div>
-      </div>
-      <div class="watch__item">
-        <div class="shop__img">
-          <img src="https://www.thegioidongho.com.vn/wp-content/uploads/2022/06/FAC0000CA0.jpg" alt="">
-        </div>
-        <div class="shop__text">
-          <h2>Saga</h2>
-          <p>1000$</p>
-        </div>
-      </div>
-      <div class="watch__item">
-        <div class="shop__img">
-          <img src="https://www.thegioidongho.com.vn/wp-content/uploads/2022/06/FAC0000CA0.jpg" alt="">
-        </div>
-        <div class="shop__text">
-          <h2>Saga</h2>
-          <p>1000$</p>
-        </div>
-      </div>
-      <div class="watch__item">
-        <div class="shop__img">
-          <img src="https://www.thegioidongho.com.vn/wp-content/uploads/2022/06/FAC0000CA0.jpg" alt="">
-        </div>
-        <div class="shop__text">
-          <h2>Saga</h2>
-          <p>1000$</p>
-        </div>
-      </div>
-      <div class="watch__item">
-        <div class="shop__img">
-          <img src="https://www.thegioidongho.com.vn/wp-content/uploads/2022/06/FAC0000CA0.jpg" alt="">
-        </div>
-        <div class="shop__text">
-          <h2>Saga</h2>
-          <p>1000$</p>
-        </div>
-      </div>
-      <div class="watch__item">
-        <div class="shop__img">
-          <img src="https://www.thegioidongho.com.vn/wp-content/uploads/2022/06/FAC0000CA0.jpg" alt="">
-        </div>
-        <div class="shop__text">
-          <h2>Saga</h2>
-          <p>1000$</p>
-        </div>
-      </div>
-      <div class="watch__item">
-        <div class="shop__img">
-          <img src="https://www.thegioidongho.com.vn/wp-content/uploads/2022/06/FAC0000CA0.jpg" alt="">
-        </div>
-        <div class="shop__text">
-          <h2>Saga</h2>
-          <p>1000$</p>
-        </div>
-      </div>
-      <div class="watch__item">
-        <div class="shop__img">
-          <img src="https://www.thegioidongho.com.vn/wp-content/uploads/2022/06/FAC0000CA0.jpg" alt="">
-        </div>
-        <div class="shop__text">
-          <h2>Saga</h2>
-          <p>1000$</p>
-        </div>
-      </div>
-
+  <section class="shop__watch">
+    <div id="shop_watch" class="shop container">
     </div>
   </section>
-
-  <section>
-    <div id="watchDetail" class="detail container"></div>
+  <section class="detail__watch">
+    <div id="detail_watch"></div>
+  
+      
   </section>
 
 
+
   <section>
-    <!-- Button trigger modal -->
-
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -182,6 +91,7 @@
       </div>
     </div>
   </section>
+
   <!-- BS4 -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -190,15 +100,19 @@
     integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
     crossorigin="anonymous"></script>
 
-  <!-- Slick -->
-  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <div id="renderSwiper">
+    <!-- Swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    </div>
 
+  <!-- Axios -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- JS -->
   <script src="./app/models/Products.js"></script>
   <script src="./app/services/ProductList.js"></script>
   <script src="./app/controllers/main.js"></script>
+
+
 </body>
 
 </html>

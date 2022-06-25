@@ -11,10 +11,11 @@
         touch-action: manipulation;
         will-change: box-shadow, transform;
         cursor: pointer;
+        border:1px solid rgba(178, 178, 178, 0.753);
 
         overflow: hidden;
         @include Size(100%, 450px, 5px);
-        .shop__img {
+        .watch__img {
             background-color: white;
             @include Size(100%, 75%, 0);
             overflow: hidden;
@@ -22,16 +23,26 @@
             justify-content: center;
             align-items: center;
             img {
-                transform: scale(0.5);
+                transition: all 0.3s;
+                transform: scale(0.35);
             }
         }
-        .shop__text {
+        .watch__text {
             text-align: center;
-            width: 100%;
+            @include Size(100%, 100%, 0 10px);
+            h4{
+                @include styleText(1.2rem,600,rgb(41, 41, 41))
+            }
+            p{
+                @include styleText(15px,400,green)
+            }
         }
         &:hover {
             box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -10px, #d6d6e7 0 -3px 0 inset;
             transform: translateY(-5px);
+            img{
+                transform: scale(0.38);
+            }
         }
         &:focus {
             box-shadow: black 0 0 0 10px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
@@ -41,50 +52,5 @@
             box-shadow: #d6d6e7 0 3px 7px inset;
             transform: translateY(5px);
         }
-    }
-    .button-30 {
-        align-items: center;
-        appearance: none;
-        background-color: #fcfcfd;
-        border-radius: 4px;
-        border-width: 0;
-        box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-        box-sizing: border-box;
-        color: #36395a;
-        cursor: pointer;
-        display: inline-flex;
-        font-family: "JetBrains Mono", monospace;
-        height: 48px;
-        justify-content: center;
-        line-height: 1;
-        list-style: none;
-        overflow: hidden;
-        padding-left: 16px;
-        padding-right: 16px;
-        position: relative;
-        text-align: left;
-        text-decoration: none;
-        transition: box-shadow 0.15s, transform 0.15s;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        white-space: nowrap;
-        will-change: box-shadow, transform;
-        font-size: 18px;
-    }
-
-    .button-30:focus {
-        box-shadow: #d6d6e7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
-            #d6d6e7 0 -3px 0 inset;
-    }
-
-    .button-30:hover {
-        box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
-        transform: translateY(-2px);
-    }
-
-    .button-30:active {
-        box-shadow: #d6d6e7 0 3px 7px inset;
-        transform: translateY(2px);
     }
 }
