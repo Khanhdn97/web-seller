@@ -228,4 +228,29 @@ header .container .navbar {
   box-shadow: #d6d6e7 0 3px 7px inset;
   transform: translateY(5px);
 }
+
+.cart .cart__content {
+  line-height: 5;
+}
+
+.cart .cart__content .quantily {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart .cart__content .quantily .btn__quantily {
+  text-align: center;
+  font-weight: bold;
+  line-height: 20px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #f2ff3a;
+  cursor: pointer;
+}
+
+.cart .cart__content .quantily .number {
+  padding: 0 5px;
+}
 /*# sourceMappingURL=main.css.map */
