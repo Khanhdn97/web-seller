@@ -1,4 +1,5 @@
 const productList = new ProductList();
+const cartList = new CartList();
 
 function getProductList() {
   const promise = productList.getList();
@@ -56,10 +57,7 @@ function showProductList(list) {
                     <p>Mô tả: ${product.desc}</p>
                 </div>
                 <div class="detail__Add">
-                  <button class="btn btn-info" onclick="renderCart(
-                    '${product.img}',
-                    '${product.name}',
-                    '${product.price}')">
+                  <button class="btn btn-info" onclick="addToCart('${product.id}')">
                     Add
                     <i class="fa fa-plus"></i>
                   </button>
@@ -75,39 +73,35 @@ function showProductList(list) {
     `;
     contentDetail2 = printImagesItem(product.imgDetail);
 
-
     document.getElementById("detail_watch").innerHTML += contentDetail1;
     document.getElementById(`big_img${product.id}`).innerHTML = contentDetail2;
-    document.getElementById(`small_img${product.id}`).innerHTML = contentDetail2;
+    document.getElementById(`small_img${product.id}`).innerHTML =
+      contentDetail2;
     renderSwiper(product.id);
-  })
-  document.getElementById('shop_watch').innerHTML = contentShop;
-  
+  });
+  document.getElementById("shop_watch").innerHTML = contentShop;
 }
 function printImagesItem(link) {
   var n = 0;
-  var content = ""
+  var content = "";
   for (let i = 0; i <= link.length; i++) {
     var str = "";
 
-    if (link[i] == ';' || link[i] == undefined) {
-
+    if (link[i] == ";" || link[i] == undefined) {
       for (let a = n; a < i; a++) {
-
         str += link[a];
-
       }
       n = ++i;
       content += `<div class="swiper-slide">
                   <img src="${str}"/>
                 </div>
-      `
+      `;
     }
   }
   return content;
 }
 function renderSwiper(id) {
-  for(var i = 1; i<= id; i++){
+  for (var i = 1; i <= id; i++) {
     var swiper = new Swiper(`.mySwiper${i}`, {
       spaceBetween: 20,
       slidesPerView: "auto",
@@ -115,7 +109,7 @@ function renderSwiper(id) {
     var swiper2 = new Swiper(`.mySwiper2${i}`, {
       spaceBetween: 0,
       keyboard: {
-          enabled: true,
+        enabled: true,
       },
       navigation: {
         nextEl: ".swiper-button-next",
@@ -125,41 +119,68 @@ function renderSwiper(id) {
         swiper: swiper,
         autoScrollOffset: 1,
       },
-      
     });
   }
 }
 
-const cartItem = [];
-function renderCart(img, name, price) {
-  cartItem.push({
-    img: img,
-    name: name,
-    price: price,
-  });
+getProductList();
+
+const cart = [];
+function addToCart(id) {
+  const promise = cartList.getCartItem(id);
+  promise
+    .then(function (result) {
+      // console.log(result.data);
+      var cartItem = {
+        id: result.data.id,
+        img: result.data.img,
+        name: result.data.name,
+        quantily: 1,
+        price: result.data.price,
+      };
+      cart.push(cartItem);
+      // console.log(cart);
+      renderCart();
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  // const item = getProductList().promise.find((product) => product.id === id);
+  // console.log(item);
+  // cartItem.push({
+  //   img: img,
+  //   name: name,
+  //   price: price,
+  // });
+  // 
+}
+// console.log(cart)
+function renderCart() {
+  renderCartItem();
+}
+
+function renderCartItem() {
   var ele = "";
-  cartItem.map(function (product) {
+  cart.map(function (item) {
     ele += `
-        <tr style="width: 100%">
-            <td><img style="width: 50px" src= "${product.img}"></td>
-            <td>${product.name}</td>
+        <tr class = "cart__content">
+            <td><img style="width: 50px" src= "${item.img}"></td>
+            <td>${item.name}</td>
             <td>
-                <input id="abc" style="width: 30px" type="number" value="1" min="0"/>
+                <div class="quantily">
+                  <div class="btn__quantily sub"><</div>
+                  <div class="number">${item.quantily}</div>
+                  <div class="btn__quantily add">></div>
+                </div>
             </td>
-            <td>${product.price}</td>
+            <td>${item.price}</td>
             <td>
-                <button class="btn btn-danger">Xóa</button>
+                <button class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+                </button>
             </td>
         </tr>
         `;
-    console.log(document.getElementById('abc'));
-
-  }
-  );
-  document.getElementById("mytbody").innerHTML = ele;
+  });
+  document.querySelector("#mytbody").innerHTML = ele;
 }
-
-
-
-getProductList();
-
