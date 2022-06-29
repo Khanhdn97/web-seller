@@ -1,8 +1,14 @@
 header{
-    .container{
+    .head{
+        background-color: wheat;
+        height: 60px;
+        display: flex;
+        align-items: center;
+
         .navbar{
             display: flex;
             justify-content: space-between;
+            
         }
     }
 }

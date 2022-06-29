@@ -28,6 +28,7 @@ function showProductList(list) {
           <h4>${product.name}</h4>
           <p>-${product.price} $-</p>
         </div>
+        <div class="watch__overlay"></div>
       </div>
     `;
     contentDetail1 = `

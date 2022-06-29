@@ -3,6 +3,7 @@
     grid-template-columns: auto auto auto auto auto;
     gap: 2%;
     padding: 30px;
+    background-color: rgba(255, 255, 255, 1);
     .watch__item {
         background-color: white;
         position: relative;
@@ -16,6 +17,7 @@
         overflow: hidden;
         @include Size(100%, 450px, 5px);
         .watch__img {
+            position: relative;
             background-color: white;
             @include Size(100%, 75%, 0);
             overflow: hidden;
@@ -37,11 +39,28 @@
                 @include styleText(15px,400,green)
             }
         }
+        .watch__overlay{
+            @include Size(70%,100%,0);
+            background: linear-gradient(to right,transparent,rgba(255, 255, 255, 0.713));
+            transform: skew(-30deg);
+            position:absolute;
+            top: 0;
+            left: -100%;
+            transition: none;
+            // opacity: 0;
+            // visibility: visible;
+        }
         &:hover {
             box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -10px, #d6d6e7 0 -3px 0 inset;
             transform: translateY(-5px);
             img{
                 transform: scale(0.38);
+            }
+            .watch__overlay{
+                transform: skew(-30deg) translateX(600%);
+                opacity: 0.6;
+                visibility: visible;
+                transition: all 1.2s;
             }
         }
         &:focus {
