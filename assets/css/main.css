@@ -229,17 +229,26 @@ header .container .navbar {
   transform: translateY(5px);
 }
 
-.cart .cart__content {
+.cart .table__cart {
+  text-align: center;
+}
+
+.cart .table__cart .cart__content {
   line-height: 5;
 }
 
-.cart .cart__content .quantily {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.cart .table__cart .cart__content td {
+  padding: 0;
 }
 
-.cart .cart__content .quantily .btn__quantily {
+.cart .table__cart .cart__content td .quantity {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 10px;
+}
+
+.cart .table__cart .cart__content td .quantity .quantity {
   text-align: center;
   font-weight: bold;
   line-height: 20px;
@@ -250,7 +259,7 @@ header .container .navbar {
   cursor: pointer;
 }
 
-.cart .cart__content .quantily .number {
+.cart .table__cart .cart__content td .quantity .number {
   padding: 0 5px;
 }
 /*# sourceMappingURL=main.css.map */
