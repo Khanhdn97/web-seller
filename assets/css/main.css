@@ -54,6 +54,8 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-size: cover;
+  background-position: center;
 }
 
 .container {
@@ -61,7 +63,14 @@ body {
   max-width: 90%;
 }
 
-header .container .navbar {
+header .head {
+  background-color: wheat;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+header .head .navbar {
   display: flex;
   justify-content: space-between;
 }
@@ -101,7 +110,7 @@ header .container .navbar {
 }
 
 .detail__watch .detail .detail__left .small__img .swiper-wrapper {
-  justify-content: center;
+  justify-content: baseline;
 }
 
 .detail__watch .detail .detail__left .small__img .swiper-wrapper .swiper-slide {
@@ -159,10 +168,7 @@ header .container .navbar {
   grid-template-columns: auto auto auto auto auto;
   gap: 2%;
   padding: 30px;
-<<<<<<< HEAD
-=======
   background-color: white;
->>>>>>> parent of 4763877 (up)
 }
 
 .shop .watch__item {
@@ -181,6 +187,7 @@ header .container .navbar {
 }
 
 .shop .watch__item .watch__img {
+  position: relative;
   background-color: white;
   width: 100%;
   height: 75%;
@@ -215,6 +222,18 @@ header .container .navbar {
   color: green;
 }
 
+.shop .watch__item .watch__overlay {
+  width: 70%;
+  height: 100%;
+  padding: 0;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.713));
+  transform: skew(-30deg);
+  position: absolute;
+  top: 0;
+  left: -100%;
+  transition: none;
+}
+
 .shop .watch__item:hover {
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -10px, #d6d6e7 0 -3px 0 inset;
   transform: translateY(-5px);
@@ -222,6 +241,13 @@ header .container .navbar {
 
 .shop .watch__item:hover img {
   transform: scale(0.38);
+}
+
+.shop .watch__item:hover .watch__overlay {
+  transform: skew(-30deg) translateX(600%);
+  opacity: 0.6;
+  visibility: visible;
+  transition: all 1.2s;
 }
 
 .shop .watch__item:focus {
