@@ -59,7 +59,7 @@ function showProductList(list) {
                     <p>Mô tả: ${product.desc}</p>
                 </div>
                 <div class="detail__Add">
-                  <button class="btn btn-info" onclick="addToCart('${product.id}')">
+                  <button class="btn btn-info" onclick="addToCart('${product.id}')" data-dismiss="modal">
                     Add
                     <i class="fa fa-plus"></i>
                   </button>
@@ -137,55 +137,44 @@ function loading(boolean){
 
 getProductList();
 
-const cart = [];
+var cart = [];
 function addToCart(id) {
   const promise = cartList.getCartItem(id);
   promise
     .then(function (result) {
-      // console.log(result.data);
       var cartItem = {
         id: result.data.id,
         img: result.data.img,
         name: result.data.name,
-        quantily: 1,
+        quantity: 1,
         price: result.data.price,
       };
       cart.push(cartItem);
-      // console.log(cart);
       renderCart();
     })
     .catch(function (error) {
       console.log(error);
     });
-  // const item = getProductList().promise.find((product) => product.id === id);
-  // console.log(item);
-  // cartItem.push({
-  //   img: img,
-  //   name: name,
-  //   price: price,
-  // });
-  // 
 }
-// console.log(cart)
 function renderCart() {
   renderCartItem();
 }
 
 function renderCartItem() {
   var ele = "";
-  cart.map(function (item) {
+  cart.map(function (product) {
     ele += `
         <tr class = "cart__content">
-            <td><img style="width: 50px" src= "${item.img}"></td>
-            <td>${item.name}</td>
+            <td><img style="width: 50px" src= "${product.img}"></td>
+            <td>${product.name}</td>
             <td>
-                <div class="quantily">
-                  <div class="btn__quantily sub"><</div>
-                  <div class="number">${item.quantily}</div>
-                  <div class="btn__quantily add">></div>
+                <div class="quantity">
+                  <div class="quantity sub" onclick="changeQuatily('sub', ${product.id})"><</div>
+                  <div class="number">${product.quantity}</div>
+                  <div class="quantity add" onclick="changeQuatily('add', ${product.id})">></div>
                 </div>
             </td>
-            <td>${item.price}</td>
+            <td>${product.price}</td>
             <td>
                 <button class="btn btn-danger">
                 <i class="fa fa-trash"></i>
@@ -195,4 +184,24 @@ function renderCartItem() {
         `;
   });
   document.querySelector("#mytbody").innerHTML = ele;
+}
+
+function changeQuatily(action, id) {
+  cart = cart.map((product) => { 
+    var quantity = product.quantity;
+
+    if(product.id === id){
+      if(action === "sub"){
+        quantity--;
+      }else if(action === "add"){
+        quantity++;
+      }
+    }
+    return {
+      ...product,
+      quantity,
+    }
+   });
+   
+  renderCart();
 }
