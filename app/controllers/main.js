@@ -12,7 +12,6 @@ function getProductList() {
   promise.catch(function (error) {
     console.log(error);
   });
-  
 }
 function showProductList(list) {
   var contentShop = "";
@@ -124,38 +123,46 @@ function renderSwiper(id) {
     });
   }
 }
-function loading(boolean){
-  if(boolean){
-    document.getElementById('loading').style.opacity = 1;
-    document.getElementById('loading').style.visibility = "visible";
-  }else{
-    document.getElementById('loading').style.opacity = 0;
-    document.getElementById('loading').style.visibility = "hidden";
+function loading(boolean) {
+  if (boolean) {
+    document.getElementById("loading").style.opacity = 1;
+    document.getElementById("loading").style.visibility = "visible";
+  } else {
+    document.getElementById("loading").style.opacity = 0;
+    document.getElementById("loading").style.visibility = "hidden";
   }
 }
-
 
 getProductList();
 
 var cart = [];
 function addToCart(id) {
-  const promise = cartList.getCartItem(id);
-  promise
-    .then(function (result) {
-      var cartItem = {
-        id: result.data.id,
-        img: result.data.img,
-        name: result.data.name,
-        quantity: 1,
-        price: result.data.price,
-      };
-      cart.push(cartItem);
-      renderCart();
+  if (
+    cart.some(function (produt) {
+      return produt.id === id;
     })
-    .catch(function (error) {
-      console.log(error);
-    });
+  ) {
+    alert("Sản phẩm đã tồn tại trong giỏ hàng");
+  } else {
+    const promise = cartList.getCartItem(id);
+    promise
+      .then(function (result) {
+        var cartItem = {
+          id: result.data.id,
+          img: result.data.img,
+          name: result.data.name,
+          quantity: 1,
+          price: result.data.price,
+        };
+        cart.push(cartItem);
+        renderCart();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 }
+
 function renderCart() {
   renderCartItem();
 }
@@ -187,21 +194,24 @@ function renderCartItem() {
 }
 
 function changeQuatily(action, id) {
-  cart = cart.map((product) => { 
+  cart = cart.map((product) => {
     var quantity = product.quantity;
 
-    if(product.id === id){
-      if(action === "sub"){
+    if (product.id == id) {
+      if (action === "sub" && quantity > 1) {
         quantity--;
-      }else if(action === "add"){
+      } else if (action === "add" && quantity < 10) {
         quantity++;
       }
     }
     return {
-      ...product,
+      id: product.id,
+      img: product.img,
+      name: product.name,
       quantity,
-    }
-   });
-   
+      price: product.price,
+    };
+  });
+
   renderCart();
 }
