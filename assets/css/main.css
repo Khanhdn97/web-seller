@@ -330,6 +330,10 @@ header .container .navbar {
   grid-template-columns: auto auto auto auto auto;
   gap: 2%;
   padding: 30px;
+<<<<<<< HEAD
+=======
+  background-color: white;
+>>>>>>> parent of 4763877 (up)
 }
 
 .shop .watch__item {
