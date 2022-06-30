@@ -1,6 +1,5 @@
 const productList = new ProductList();
 const cartList = new CartList();
-
 function getProductList() {
   const promise = productList.getList();
   promise.then(function (result) {
@@ -8,10 +7,12 @@ function getProductList() {
       productList.ArrayP[index] = product;
     });
     showProductList(result.data);
+    loading(false);
   });
   promise.catch(function (error) {
     console.log(error);
   });
+  
 }
 function showProductList(list) {
   var contentShop = "";
@@ -27,6 +28,7 @@ function showProductList(list) {
           <h4>${product.name}</h4>
           <p>-${product.price} $-</p>
         </div>
+        <div class="watch__overlay"></div>
       </div>
     `;
     contentDetail1 = `
@@ -122,6 +124,16 @@ function renderSwiper(id) {
     });
   }
 }
+function loading(boolean){
+  if(boolean){
+    document.getElementById('loading').style.opacity = 1;
+    document.getElementById('loading').style.visibility = "visible";
+  }else{
+    document.getElementById('loading').style.opacity = 0;
+    document.getElementById('loading').style.visibility = "hidden";
+  }
+}
+
 
 getProductList();
 

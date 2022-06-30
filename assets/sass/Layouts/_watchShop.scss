@@ -3,6 +3,7 @@
     grid-template-columns: auto auto auto auto auto;
     gap: 2%;
     padding: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
     .watch__item {
         background-color: white;
         position: relative;
@@ -37,12 +38,30 @@
                 @include styleText(15px,400,green)
             }
         }
+        .watch__overlay{
+            position: absolute;
+            top: 0;
+            left: -100%;
+            @include Size(40%,100%,0);
+            transform: skew(-30deg);
+            background: linear-gradient(to Right, transparent, rgba(255, 255, 255, 1));
+            transition: none;
+            opacity:0;
+            visibility: hidden;
+        }
         &:hover {
             box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -10px, #d6d6e7 0 -3px 0 inset;
             transform: translateY(-5px);
             img{
                 transform: scale(0.38);
             }
+            .watch__overlay{
+                transform: skew(-30deg) translate(600%);
+                transition: all 0.8s;
+                opacity: 1;
+                visibility: visible;
+            }
+
         }
         &:focus {
             box-shadow: black 0 0 0 10px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,

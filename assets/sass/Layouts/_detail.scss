@@ -18,7 +18,7 @@
                 border-top: 1px solid rgba(162, 160, 160, 0.3);
                 border-bottom: 1px solid rgba(162, 160, 160, 0.3);
                 .swiper-wrapper{
-                    justify-content: center;
+                    justify-content: baseline;
                     .swiper-slide {
                         overflow: hidden;
                         @include Size(80px, 10vh, 0);
