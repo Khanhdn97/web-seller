@@ -208,13 +208,22 @@ function changeQuatily(action, id) {
 // Lọc sản phẩm theo Nhãn hiệu
 function locSanPham() {
   var selectELE = document.getElementById("locSP").value;
-
   switch (selectELE) {
     case "Orient":
       timKiem("Orient");
       break;
+    case "Casio":
+      timKiem("Casio");
+      break;
+    case "Rolex":
+      timKiem("Rolex");
+      break;
+    case "Citizen":
+      timKiem("Citizen");
+      break;
 
     default:
+      getProductList();
       break;
   }
 }
@@ -223,6 +232,7 @@ function timKiem(value) {
   productList.ArrayP.map(function (product) {
     if (product.brand == value) {
       mangTK.push(product);
+      // console.log(mangTK);
     }
   });
   showProductList(mangTK);
