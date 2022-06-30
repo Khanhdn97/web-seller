@@ -12,6 +12,7 @@ function getProductList() {
   promise.catch(function (error) {
     console.log(error);
   });
+
 }
 function showProductList(list) {
   var contentShop = "";
@@ -135,11 +136,14 @@ function loading(boolean) {
 
 getProductList();
 
-var cart = [];
+var cart = JSON.parse(localStorage.getItem("CART")) || [];
+
+renderCart();
+
 function addToCart(id) {
   if (
-    cart.some(function (produt) {
-      return produt.id === id;
+    cart.some(function (product) {
+      return product.id === id;
     })
   ) {
     alert("Sản phẩm đã tồn tại trong giỏ hàng");
@@ -165,8 +169,21 @@ function addToCart(id) {
 
 function renderCart() {
   renderCartItem();
-}
+  renderTotal();
 
+  // lưu vào local storage
+
+  localStorage.setItem("CART", JSON.stringify(cart))
+}
+// Tính tiền tổng tiền
+function renderTotal() {
+  var totalPrice = 0;
+  cart.forEach(function (product) {
+    totalPrice += (product.price * product.quantity);
+  });
+  document.querySelector("#price").innerHTML = `Tổng tiền: $${totalPrice}`
+}
+// Hiển thị giỏ hàng
 function renderCartItem() {
   var ele = "";
   cart.map(function (product) {
@@ -183,7 +200,7 @@ function renderCartItem() {
             </td>
             <td>${product.price}</td>
             <td>
-                <button class="btn btn-danger">
+                <button class="btn btn-danger" onclick= "removeProduct(${product.id})">
                 <i class="fa fa-trash"></i>
                 </button>
             </td>
@@ -192,15 +209,15 @@ function renderCartItem() {
   });
   document.querySelector("#mytbody").innerHTML = ele;
 }
-
+// Thay đổi số lượng sản phẩm
 function changeQuatily(action, id) {
   cart = cart.map((product) => {
     var quantity = product.quantity;
 
-    if (product.id === id) {
-      if (action === "sub") {
+    if (product.id == id) {
+      if (action === "sub" && quantity > 1) {
         quantity--;
-      } else if (action === "add") {
+      } else if (action === "add" && quantity < 10) {
         quantity++;
       }
     }
@@ -209,11 +226,27 @@ function changeQuatily(action, id) {
       img: product.img,
       name: product.name,
       quantity,
+      price: product.price,
     };
   });
 
   renderCart();
 }
+// Xóa sản phẩm
+function removeProduct(id) {
+  cart = cart.filter(function (product) {
+    return product.id != id;
+  })
+  renderCart();
+}
+
+function removeAllProduct() {
+  cart = [];
+  renderCart();
+}
+
+document.querySelector("#removeAll").onclick = removeAllProduct;
+
 // Lọc sản phẩm theo Nhãn hiệu
 function locSanPham() {
   var selectELE = document.getElementById("locSP").value;
