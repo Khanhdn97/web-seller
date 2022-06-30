@@ -12,7 +12,7 @@ function getProductList() {
   promise.catch(function (error) {
     console.log(error);
   });
-  
+
 }
 function showProductList(list) {
   var contentShop = "";
@@ -124,11 +124,11 @@ function renderSwiper(id) {
     });
   }
 }
-function loading(boolean){
-  if(boolean){
+function loading(boolean) {
+  if (boolean) {
     document.getElementById('loading').style.opacity = 1;
     document.getElementById('loading').style.visibility = "visible";
-  }else{
+  } else {
     document.getElementById('loading').style.opacity = 0;
     document.getElementById('loading').style.visibility = "hidden";
   }
@@ -187,21 +187,52 @@ function renderCartItem() {
 }
 
 function changeQuatily(action, id) {
-  cart = cart.map((product) => { 
+  cart = cart.map((product) => {
     var quantity = product.quantity;
 
-    if(product.id === id){
-      if(action === "sub"){
+    if (product.id === id) {
+      if (action === "sub") {
         quantity--;
-      }else if(action === "add"){
+      } else if (action === "add") {
         quantity++;
       }
     }
     return {
       ...product,
       quantity,
-    }
-   });
-   
+    };
+  });
+
   renderCart();
+}
+// Lọc sản phẩm theo Nhãn hiệu
+function locSanPham() {
+  var selectELE = document.getElementById("locSP").value;
+
+  switch (selectELE) {
+    case "Orient":
+      timKiem("Orient");
+      break;
+
+    default:
+      break;
+  }
+}
+function timKiem(value) {
+  var mangSP = productList.ArrayP;
+  var mangSPCopy = [];
+  for (var i = 0; i < mangSP.length; i++) {
+    mangSPCopy.push(mangSP[i]);
+    // console.log(mangSPCopy);
+  }
+  // console.log(mangSPCopy);
+  var mangTK = [];
+  // console.log(mangSP);
+  mangSPCopy.map(function (product) {
+    // console.log(product);
+    if (product.brand == value) {
+      mangTK.push(product);
+    }
+  });
+  showProductList(mangTK);
 }

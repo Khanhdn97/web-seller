@@ -32,32 +32,32 @@
     <div class="header__content">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- Menu Bar -->
-    <div class="nav">
-      <label for="defaultCheck1" class="fa-solid fa-bars nav__icon">
-      </label>
-      <input class="nav__input" type="checkbox" value="" id="defaultCheck1">
-      <label for="defaultCheck1" class="nav__overplay"></label>
-      <nav class="nav__text ">
-        <label for="defaultCheck1" class="nav__close">
-          <i class="fa-solid fa-xmark"></i>
-        </label>
-        <ul>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Active</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-          </li>
-        </ul>
-      </nav>
+        <div class="nav">
+          <label for="defaultCheck1" class="fa-solid fa-bars nav__icon">
+          </label>
+          <input class="nav__input" type="checkbox" value="" id="defaultCheck1">
+          <label for="defaultCheck1" class="nav__overplay"></label>
+          <nav class="nav__text ">
+            <label for="defaultCheck1" class="nav__close">
+              <i class="fa-solid fa-xmark"></i>
+            </label>
+            <ul>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Active</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+          </nav>
 
-    </div>
+        </div>
         <span class="navbar-brand" href="#">Web-Seller</span>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
           <span class="navbar-icon" href="#"><i class="fa fa-shopping-cart"></i></span>
@@ -67,8 +67,28 @@
     </div>
   </header>
 
+  <section class="filter">
+    <div class="container">
+      <div class="row">
+        <div class="col-8"></div>
+        <div class="col-4">
+          <button class="btn btn-warning btnFilter">
+            Lọc
+          </button>
+          <select onchange="locSanPham()" class="custom-select form-control" id="locSP">
+            <option selected>Nhãn Hiệu Sản Phẩm</option>
+            <option value="Orient">Orient</option>
+            <option value="Casio">Casio</option>
+            <option value="Rolex">Rolex</option>
+            <option value="Citizen">Citizen</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="shop_watch" class="shop container"></div>
   <section class="shop__watch">
-    <div id="shop_watch" class="shop container"></div>
+
   </section>
   <section class="detail__watch">
     <div id="detail_watch"></div>
