@@ -17,6 +17,7 @@ function showProductList(list) {
   var contentShop = "";
   var contentDetail1 = "";
   var contentDetail2 = "";
+  document.getElementById("detail_watch").innerHTML = "";
   list.map(function (product) {
     contentShop += `
       <div class="watch__item" data-toggle="modal" data-target="#exampleModal${product.id}">
@@ -73,7 +74,6 @@ function showProductList(list) {
       </div>
     `;
     contentDetail2 = printImagesItem(product.imgDetail);
-
     document.getElementById("detail_watch").innerHTML += contentDetail1;
     document.getElementById(`big_img${product.id}`).innerHTML = contentDetail2;
     document.getElementById(`small_img${product.id}`).innerHTML =
@@ -125,11 +125,11 @@ function renderSwiper(id) {
 }
 function loading(boolean) {
   if (boolean) {
-    document.getElementById("loading").style.opacity = 1;
-    document.getElementById("loading").style.visibility = "visible";
+    document.getElementById('loading').style.opacity = 1;
+    document.getElementById('loading').style.visibility = "visible";
   } else {
-    document.getElementById("loading").style.opacity = 0;
-    document.getElementById("loading").style.visibility = "hidden";
+    document.getElementById('loading').style.opacity = 0;
+    document.getElementById('loading').style.visibility = "hidden";
   }
 }
 
@@ -197,10 +197,10 @@ function changeQuatily(action, id) {
   cart = cart.map((product) => {
     var quantity = product.quantity;
 
-    if (product.id == id) {
-      if (action === "sub" && quantity > 1) {
+    if (product.id === id) {
+      if (action === "sub") {
         quantity--;
-      } else if (action === "add" && quantity < 10) {
+      } else if (action === "add") {
         quantity++;
       }
     }
@@ -209,9 +209,40 @@ function changeQuatily(action, id) {
       img: product.img,
       name: product.name,
       quantity,
-      price: product.price,
     };
   });
 
   renderCart();
+}
+// Lọc sản phẩm theo Nhãn hiệu
+function locSanPham() {
+  var selectELE = document.getElementById("locSP").value;
+  switch (selectELE) {
+    case "Orient":
+      timKiem("Orient");
+      break;
+    case "Casio":
+      timKiem("Casio");
+      break;
+    case "Rolex":
+      timKiem("Rolex");
+      break;
+    case "Citizen":
+      timKiem("Citizen");
+      break;
+
+    default:
+      getProductList();
+      break;
+  }
+}
+function timKiem(value) {
+  var mangTK = [];
+  productList.ArrayP.map(function (product) {
+    if (product.brand == value) {
+      mangTK.push(product);
+      // console.log(mangTK);
+    }
+  });
+  showProductList(mangTK);
 }
