@@ -18,6 +18,7 @@ function showProductList(list) {
   var contentShop = "";
   var contentDetail1 = "";
   var contentDetail2 = "";
+  document.getElementById("detail_watch").innerHTML = "";
   list.map(function (product) {
     contentShop += `
       <div class="watch__item" data-toggle="modal" data-target="#exampleModal${product.id}">
@@ -74,7 +75,6 @@ function showProductList(list) {
       </div>
     `;
     contentDetail2 = printImagesItem(product.imgDetail);
-
     document.getElementById("detail_watch").innerHTML += contentDetail1;
     document.getElementById(`big_img${product.id}`).innerHTML = contentDetail2;
     document.getElementById(`small_img${product.id}`).innerHTML =
@@ -225,17 +225,8 @@ function locSanPham() {
   }
 }
 function timKiem(value) {
-  var mangSP = productList.ArrayP;
-  var mangSPCopy = [];
-  for (var i = 0; i < mangSP.length; i++) {
-    mangSPCopy.push(mangSP[i]);
-    // console.log(mangSPCopy);
-  }
-  // console.log(mangSPCopy);
   var mangTK = [];
-  // console.log(mangSP);
-  mangSPCopy.map(function (product) {
-    // console.log(product);
+  productList.ArrayP.map(function (product) {
     if (product.brand == value) {
       mangTK.push(product);
       console.log(mangTK);
