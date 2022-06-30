@@ -211,7 +211,13 @@ function locSanPham() {
 
   switch (selectELE) {
     case "Orient":
-      timKiem("Orient");
+      var mangP = timKiem("Orient");
+      var mangPCopy = [];
+      for (var i = 0; i < mangP.length; i++) {
+        mangPCopy.push(mangP[i]);
+      }
+      showProductList(mangPCopy);
+
       break;
 
     default:
@@ -232,7 +238,9 @@ function timKiem(value) {
     // console.log(product);
     if (product.brand == value) {
       mangTK.push(product);
+      console.log(mangTK);
     }
+    return mangTK;
   });
   showProductList(mangTK);
 }
