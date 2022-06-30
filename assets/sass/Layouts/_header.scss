@@ -1,14 +1,8 @@
 header{
-    .head{
-        background-color: wheat;
-        height: 60px;
-        display: flex;
-        align-items: center;
-
+    .container{
         .navbar{
             display: flex;
             justify-content: space-between;
-            
         }
     }
 }
