@@ -134,32 +134,56 @@ function loading(boolean) {
   }
 }
 
-
 getProductList();
 
-var cart = [];
+var cart = JSON.parse(localStorage.getItem("CART")) || [];
+
+renderCart();
+
 function addToCart(id) {
-  const promise = cartList.getCartItem(id);
-  promise
-    .then(function (result) {
-      var cartItem = {
-        id: result.data.id,
-        img: result.data.img,
-        name: result.data.name,
-        quantity: 1,
-        price: result.data.price,
-      };
-      cart.push(cartItem);
-      renderCart();
+  if (
+    cart.some(function (product) {
+      return product.id === id;
     })
-    .catch(function (error) {
-      console.log(error);
-    });
-}
-function renderCart() {
-  renderCartItem();
+  ) {
+    alert("Sản phẩm đã tồn tại trong giỏ hàng");
+  } else {
+    const promise = cartList.getCartItem(id);
+    promise
+      .then(function (result) {
+        var cartItem = {
+          id: result.data.id,
+          img: result.data.img,
+          name: result.data.name,
+          quantity: 1,
+          price: result.data.price,
+        };
+        cart.push(cartItem);
+        renderCart();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 }
 
+function renderCart() {
+  renderCartItem();
+  renderTotal();
+
+  // lưu vào local storage
+
+  localStorage.setItem("CART", JSON.stringify(cart))
+}
+// Tính tiền tổng tiền
+function renderTotal() {
+  var totalPrice = 0;
+  cart.forEach(function (product) {
+    totalPrice += (product.price * product.quantity);
+  });
+  document.querySelector("#price").innerHTML = `Tổng tiền: $${totalPrice}`
+}
+// Hiển thị giỏ hàng
 function renderCartItem() {
   var ele = "";
   cart.map(function (product) {
@@ -176,7 +200,7 @@ function renderCartItem() {
             </td>
             <td>${product.price}</td>
             <td>
-                <button class="btn btn-danger">
+                <button class="btn btn-danger" onclick= "removeProduct(${product.id})">
                 <i class="fa fa-trash"></i>
                 </button>
             </td>
@@ -185,26 +209,44 @@ function renderCartItem() {
   });
   document.querySelector("#mytbody").innerHTML = ele;
 }
-
+// Thay đổi số lượng sản phẩm
 function changeQuatily(action, id) {
   cart = cart.map((product) => {
     var quantity = product.quantity;
 
-    if (product.id === id) {
-      if (action === "sub") {
+    if (product.id == id) {
+      if (action === "sub" && quantity > 1) {
         quantity--;
-      } else if (action === "add") {
+      } else if (action === "add" && quantity < 10) {
         quantity++;
       }
     }
     return {
-      ...product,
+      id: product.id,
+      img: product.img,
+      name: product.name,
       quantity,
+      price: product.price,
     };
   });
 
   renderCart();
 }
+// Xóa sản phẩm
+function removeProduct(id) {
+  cart = cart.filter(function (product) {
+    return product.id != id;
+  })
+  renderCart();
+}
+
+function removeAllProduct() {
+  cart = [];
+  renderCart();
+}
+
+document.querySelector("#removeAll").onclick = removeAllProduct;
+
 // Lọc sản phẩm theo Nhãn hiệu
 function locSanPham() {
   var selectELE = document.getElementById("locSP").value;
