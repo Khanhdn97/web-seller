@@ -56,7 +56,6 @@ body {
   font-family: 'Roboto', sans-serif;
   background: url(../img/vIdSZT.jpg);
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
 }
 
@@ -230,13 +229,13 @@ header .header__content .navbar {
   justify-content: space-between;
 }
 
-header .nav__icon {
+header .header__content .nav__icon {
   margin: 8px 0 0 8px;
   font-size: 50px;
   cursor: pointer;
 }
 
-header .nav__overplay {
+header .header__content .nav__overplay {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -249,7 +248,7 @@ header .nav__overplay {
   z-index: 99;
 }
 
-header .nav__text {
+header .header__content .nav__text {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -263,28 +262,32 @@ header .nav__text {
   z-index: 99;
 }
 
-header .nav__close {
+header .header__content .nav__close {
   position: fixed;
   right: 10px;
   font-size: 50px;
   color: black;
 }
 
-header .nav__input {
+header .header__content .nav__input {
   display: none;
 }
 
-header .nav__input:checked ~ .cdn {
+header .header__content .nav__input:checked ~ .cdn {
   color: red;
 }
 
-header .nav__input:checked ~ .nav__overplay {
+header .header__content .nav__input:checked ~ .nav__overplay {
   display: block;
 }
 
-header .nav__input:checked ~ .nav__text {
+header .header__content .nav__input:checked ~ .nav__text {
   opacity: 1;
   transform: translate(0%);
+}
+
+header .header__content .nav__input:checked ~ .container {
+  margin-left: 200px;
 }
 
 @keyframes fadeIn {
