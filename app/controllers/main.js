@@ -173,7 +173,7 @@ function renderCart() {
 
   // lưu vào local storage
 
-  localStorage.setItem("CART", JSON.stringify(cart))
+  localStorage.setItem("CART", JSON.stringify(cart));
 }
 // Tính tiền tổng tiền
 function renderTotal() {
@@ -181,7 +181,7 @@ function renderTotal() {
   cart.forEach(function (product) {
     totalPrice += (product.price * product.quantity);
   });
-  document.querySelector("#price").innerHTML = `Tổng tiền: $${totalPrice}`
+  document.querySelector("#price").innerHTML = `Tổng tiền: $${totalPrice}`;
 }
 // Hiển thị giỏ hàng
 function renderCartItem() {
@@ -236,7 +236,7 @@ function changeQuatily(action, id) {
 function removeProduct(id) {
   cart = cart.filter(function (product) {
     return product.id != id;
-  })
+  });
   renderCart();
 }
 
@@ -248,6 +248,9 @@ function removeAllProduct() {
 document.querySelector("#removeAll").onclick = removeAllProduct;
 
 // Lọc sản phẩm theo Nhãn hiệu
+
+const mangSX = productList.ArrayP;
+
 function locSanPham() {
   var selectELE = document.getElementById("locSP").value;
   switch (selectELE) {
@@ -270,7 +273,7 @@ function locSanPham() {
 }
 function timKiem(value) {
   var mangTK = [];
-  productList.ArrayP.map(function (product) {
+  mangSX.map(function (product) {
     if (product.brand == value) {
       mangTK.push(product);
       // console.log(mangTK);
@@ -283,7 +286,7 @@ function sapXepSanPham() {
   var sxPriceELE = document.getElementById("sxPrice").value;
   switch (sxPriceELE) {
     case "Tăng dần":
-      var mangSX = productList.ArrayP;
+      // var mangSX = productList.ArrayP;
       var mangSXCopy = [];
       for (var i = 0; i < mangSX.length; i++) {
         mangSXCopy.push(mangSX[i]);
@@ -301,7 +304,7 @@ function sapXepSanPham() {
       showProductList(mangSXCopy);
       break;
     case "Giảm dần":
-      var mangSX = productList.ArrayP;
+      // var mangSX = productList.ArrayP;
       var mangSXCopy = [];
       for (var i = 0; i < mangSX.length; i++) {
         mangSXCopy.push(mangSX[i]);
@@ -323,4 +326,12 @@ function sapXepSanPham() {
       break;
   }
 }
+// Tìm kiếm theo tên SP
+document.getElementById("inputSP").onkeyup = function () {
+  var tenTK = document.getElementById("inputSP").value;
+  var mangTK = [];
+  mangTK = productList.searchName(tenTK);
+  showProductList(mangTK);
+};
+
 
