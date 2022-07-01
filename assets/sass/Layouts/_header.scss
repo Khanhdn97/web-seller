@@ -1,76 +1,90 @@
 header{
     .header__content{
+        position: relative;
         .navbar{
             display: flex;
             justify-content: space-between;
+            .total__item{
+                position: absolute;
+                top: 5px;
+                right: 7px;
+                width: 1.5rem;
+                height: 1.5rem;
+                background-color: yellow;
+                text-align: center;
+                line-height: 1.5rem;
+                border-radius: 50%;
+                border: 1px solid white;
+            }
         }
-    }
-    .nav__icon {
-        margin: 8px 0 0 8px;
-        font-size: 50px;
-        cursor: pointer;
-    }
-    
-    .nav__overplay {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        display: none;
-        animation: fadeIn linear 0.5s;
-        z-index: 99;
-    }
-    
-    .nav__text {
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        background-color: white;
-        width: 320px;
-        max-width: 100%;
-        opacity: 0;
-        transform: translate(-100%);
-        transition: all linear 0.5s;
-        z-index: 99;
-    
-    }
-    
-    .nav__close {
-        position: fixed;
-        right: 10px;
-        font-size: 50px;
-        color: black;
-    }
-    
-    .nav__input {
-        display: none;
-    }
-    
-    .nav__input:checked~.cdn {
-        color: red;
-    }
-    
-    .nav__input:checked~.nav__overplay {
-        display: block;
-    }
-    
-    .nav__input:checked~.nav__text {
-        opacity: 1;
-        transform: translate(0%);
-    
-    }
-    
-    @keyframes fadeIn {
-        from {
+        .nav__icon {
+            margin: 8px 0 0 8px;
+            font-size: 50px;
+            cursor: pointer;
+        }
+        
+        .nav__overplay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: none;
+            animation: fadeIn linear 0.5s;
+            z-index: 99;
+        }
+        
+        .nav__text {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            width: 320px;
+            max-width: 100%;
             opacity: 0;
+            transform: translate(-100%);
+            transition: all linear 0.5s;
+            z-index: 99;
+        
         }
-    
-        to {
+        
+        .nav__close {
+            position: fixed;
+            right: 10px;
+            font-size: 50px;
+            color: black;
+        }
+        
+        .nav__input {
+            display: none;
+        }
+        
+        .nav__input:checked~.cdn {
+            color: red;
+        }
+        
+        .nav__input:checked~.nav__overplay {
+            display: block;
+        }
+        
+        .nav__input:checked~.nav__text {
             opacity: 1;
+            transform: translate(0%);
+        }
+        .nav__input:checked~.container{
+            margin-left: 200px;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+        
+            to {
+                opacity: 1;
+            }
         }
     }
     
