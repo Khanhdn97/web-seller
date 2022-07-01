@@ -70,15 +70,27 @@
   <section class="filter">
     <div class="container">
       <div class="row">
-        <div class="col-8"></div>
         <div class="col-4">
-          <select onchange="locSanPham()" class="custom-select form-control my-3" id="locSP">
-            <option selected>Hãy Chọn Nhãn Hiệu</option>
+          <select onchange="locSanPham()" class="custom-select my-3" id="locSP">
+            <option selected>Lọc Nhãn Hiệu</option>
             <option value="Orient">Orient</option>
             <option value="Casio">Casio</option>
             <option value="Rolex">Rolex</option>
             <option value="Citizen">Citizen</option>
           </select>
+        </div>
+        <div class="col-4">
+          <select onchange="sapXepSanPham()" class="custom-select my-3" id="sxPrice">
+            <option selected>Mặc định</option>
+            <option value="Tăng dần">Giá Tăng dần</option>
+            <option value="Giảm dần">Giá Giảm dần</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <div class="Input_search d-flex align-items-center my-3">
+            <input type="text" id="inputSP" class="form-control" placeholder="Nhập Tên Sản Phẩm">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
         </div>
       </div>
     </div>
