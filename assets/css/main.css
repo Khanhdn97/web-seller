@@ -379,6 +379,14 @@ header .header__content .nav__input:checked ~ .container {
   position: relative;
 }
 
+.detail__watch .detail .detail__right .detail__text {
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+  border-left: 1px solid rgba(128, 128, 128, 0.391);
+  padding-left: 10px;
+}
+
 .detail__watch .detail .detail__right .close {
   position: absolute;
   top: -5%;
