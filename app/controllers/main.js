@@ -178,10 +178,13 @@ function renderCart() {
 // Tính tiền tổng tiền
 function renderTotal() {
   var totalPrice = 0;
+  var totalItem = 0;
   cart.forEach(function (product) {
     totalPrice += (product.price * product.quantity);
+    totalItem += product.quantity;
   });
   document.querySelector("#price").innerHTML = `Tổng tiền: $${totalPrice}`
+  document.querySelector(".total__item").innerHTML = totalItem;
 }
 // Hiển thị giỏ hàng
 function renderCartItem() {
@@ -211,7 +214,7 @@ function renderCartItem() {
 }
 // Thay đổi số lượng sản phẩm
 function changeQuatily(action, id) {
-  cart = cart.map((product) => {
+  cart = cart.map(function(product) {
     var quantity = product.quantity;
 
     if (product.id == id) {
@@ -240,12 +243,14 @@ function removeProduct(id) {
   renderCart();
 }
 
-function removeAllProduct() {
+function clearAllProduct() {
   cart = [];
   renderCart();
 }
 
-document.querySelector("#removeAll").onclick = removeAllProduct;
+document.querySelector("#removeAll").onclick = clearAllProduct;
+document.querySelector("#purchase").onclick = clearAllProduct;
+
 
 // Lọc sản phẩm theo Nhãn hiệu
 function locSanPham() {

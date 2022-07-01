@@ -224,9 +224,26 @@ body {
   }
 }
 
+header .header__content {
+  position: relative;
+}
+
 header .header__content .navbar {
   display: flex;
   justify-content: space-between;
+}
+
+header .header__content .navbar .total__item {
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: yellow;
+  text-align: center;
+  line-height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid white;
 }
 
 header .header__content .nav__icon {
