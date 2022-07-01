@@ -1,8 +1,21 @@
 header{
     .header__content{
+        position: relative;
         .navbar{
             display: flex;
             justify-content: space-between;
+            .total__item{
+                position: absolute;
+                top: 5px;
+                right: 7px;
+                width: 1.5rem;
+                height: 1.5rem;
+                background-color: yellow;
+                text-align: center;
+                line-height: 1.5rem;
+                border-radius: 50%;
+                border: 1px solid white;
+            }
         }
         .nav__icon {
             margin: 8px 0 0 8px;

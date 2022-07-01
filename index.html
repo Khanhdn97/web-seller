@@ -62,6 +62,7 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
           <span class="navbar-icon" href="#"><i class="fa fa-shopping-cart"></i></span>
         </button>
+        <span class="total__item">0</span>
       </nav>
 
     </div>
@@ -149,7 +150,7 @@
       <div class="modal-dialog">
         <div class="modal-content cart">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Giỏ hàng</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -172,10 +173,10 @@
           </div>
           <div class="cart__footer">
             <div class="cart__total">
-              <p class="alert-info" id="price">Tổng tiền: <span>$0</span></p>
+              <p id="price">Tổng tiền: <span>$0</span></p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-success" data-dismiss="modal">
+              <button type="button" class="btn btn-success" id="purchase" data-dismiss="modal">
                 Thanh toán
               </button>
               <button type="button" class="btn btn-danger" id="removeAll">
