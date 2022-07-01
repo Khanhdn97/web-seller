@@ -60,7 +60,7 @@ function showProductList(list) {
                     <p>Mô tả: ${product.desc}</p>
                 </div>
                 <div class="detail__Add">
-                  <button class="btn btn-info" onclick="addToCart('${product.id}')" data-dismiss="modal">
+                  <button class="btn btn-info button-36" onclick="addToCart('${product.id}')" data-dismiss="modal">
                     Add
                     <i class="fa fa-plus"></i>
                   </button>
