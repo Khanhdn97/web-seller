@@ -7,6 +7,7 @@ function getProductList() {
       productList.ArrayP[index] = product;
     });
     showProductList(result.data);
+    renderSortBrand();
     loading(false);
   });
   promise.catch(function (error) {
@@ -261,9 +262,22 @@ function sortProduct() {
   sapXepSanPham(sortList);
   showProductList(sortList);
 }
-function renderSelect(params) {
-  
+function renderSortBrand() {
+  var brandList = [];
+  brandList.push(productList.ArrayP[0].brand);
+  productList.ArrayP.map(function(product){
+    var count = 0;
+    for(var i = 0; i<brandList.length;i++){
+      if(brandList[i] == product.brand) count++;
+    }
+    if(count == 0) brandList.push(product.brand)
+  })
+  brandList.map(function(brand){
+    document.getElementById("locSP").innerHTML += `
+    <option value="${brand}">${brand}</option>`
+  })
 }
+
 // Lọc sản phẩm theo Nhãn hiệu
 function locSanPham(list) {
   var selectELE = document.getElementById("locSP").value;
