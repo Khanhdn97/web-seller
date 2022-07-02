@@ -255,45 +255,52 @@ function clearAllProduct() {
 document.querySelector("#removeAll").onclick = clearAllProduct;
 document.querySelector("#purchase").onclick = clearAllProduct;
 
-
+function sortProduct() {
+  var sortList = [];
+  locSanPham(sortList);
+  sapXepSanPham(sortList);
+  showProductList(sortList);
+}
 // Lọc sản phẩm theo Nhãn hiệu
-function locSanPham() {
+function locSanPham(list) {
   var selectELE = document.getElementById("locSP").value;
   switch (selectELE) {
     case "Orient":
-      timKiem("Orient");
+      timKiem("Orient",list);
       break;
     case "Casio":
-      timKiem("Casio");
+      timKiem("Casio",list);
       break;
     case "Rolex":
-      timKiem("Rolex");
+      timKiem("Rolex",list);
       break;
     case "Citizen":
-      timKiem("Citizen");
+      timKiem("Citizen",list);
       break;
     default:
-      getProductList();
+      productList.ArrayP.map(function (product,index) {
+        list[index] = product;
+      })
       break;
   }
 }
-function timKiem(value) {
-  var mangTK = [];
+function timKiem(value,list) {
   productList.ArrayP.map(function (product) {
     if (product.brand == value) {
-      mangTK.push(product);
-      // console.log(mangTK);
+      list.push(product);
     }
   });
-  showProductList(mangTK);
 }
 // Sắp xếp Giá
-function sapXepSanPham() {
+function sapXepSanPham(list) {
   var sxPriceELE = document.getElementById("sxPrice").value;
+  var mangSX = [];
+  var mangSXCopy = [];
+  list.map(function(product,index){
+      mangSX[index] = product
+  })
   switch (sxPriceELE) {
     case "Tăng dần":
-      var mangSX = productList.ArrayP;
-      var mangSXCopy = [];
       for (var i = 0; i < mangSX.length; i++) {
         mangSXCopy.push(mangSX[i]);
       }
@@ -307,11 +314,12 @@ function sapXepSanPham() {
           }
         }
       }
-      showProductList(mangSXCopy);
+      list.length = 0;
+      mangSXCopy.map(function(product){
+        list.push(product);
+      })
       break;
     case "Giảm dần":
-      var mangSX = productList.ArrayP;
-      var mangSXCopy = [];
       for (var i = 0; i < mangSX.length; i++) {
         mangSXCopy.push(mangSX[i]);
       }
@@ -325,10 +333,13 @@ function sapXepSanPham() {
           }
         }
       }
-      showProductList(mangSXCopy);
+      list.length = 0;
+      mangSXCopy.map(function(product){
+        list.push(product);
+      })
       break;
 
-    default: getProductList();
+    default: ;
       break;
   }
 }
