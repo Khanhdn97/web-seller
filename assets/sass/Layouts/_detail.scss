@@ -6,8 +6,12 @@
         margin: 20px;
         .detail__left {
             @include Size(55%, 90%, 0);
+            display: flex;
+            flex-direction: column;
+            align-content: space-between;
             .big__img {
                 @include Size(100%, 65vh, 0);
+                border: 1px solid rgba(164, 164, 164, 0.6);
                 img {
                     width: 100%;
                 }
@@ -15,8 +19,8 @@
             .small__img {
                 height: 100%;
                 margin-top: 20px;
-                border-top: 1px solid rgba(162, 160, 160, 0.3);
-                border-bottom: 1px solid rgba(162, 160, 160, 0.3);
+                border-top: 1px solid rgba(162, 160, 160, 0.6);
+                border-bottom: 1px solid rgba(162, 160, 160, 0.6);
                 .swiper-wrapper {
                     justify-content: baseline;
                     .swiper-slide {
@@ -46,15 +50,23 @@
         }
         .detail__right {
             @include styleDisplay(flex, unset, space-between);
-            @include Size(30%, unset, 20px 0);
+            @include Size(30%, unset,10px 0 );
             flex-direction: column;
+            align-content: space-between;
             position: relative;
             .detail__text {
                 @include styleText(18px, 600, black);
-                border-left: 1px solid rgba(128, 128, 128, 0.391);
-                padding-left: 10px;
+                
             }
-
+            .detail__button{
+                display: flex;
+                justify-content: space-between;
+                padding-top: 10px;
+                border-top: 1px solid rgba(162, 160, 160, 0.6);
+                .btn{
+                    width: 48%;
+                }
+            }
             .close {
                 position: absolute;
                 top: -5%;

@@ -13,7 +13,7 @@
         will-change: box-shadow, transform;
         cursor: pointer;
         border:1px solid rgba(178, 178, 178, 0.753);
-
+        border-radius: 10px;
         overflow: hidden;
         @include Size(100%, 450px, 5px);
         .watch__img {

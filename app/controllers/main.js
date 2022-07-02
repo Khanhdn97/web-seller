@@ -59,10 +59,14 @@ function showProductList(list) {
                     <p>Loại dây: ${product.strap}</p>
                     <p>Mô tả: ${product.desc}</p>
                 </div>
-                <div class="detail__Add">
+                <div class="detail__button">
                   <button class="btn btn-info button-36" onclick="addToCart('${product.id}')" data-dismiss="modal">
-                    Add
                     <i class="fa fa-plus"></i>
+                    Thêm vào giỏ
+                  </button>
+                  <button class="btn btn-info button-36 button-37" onclick="" >
+                    <i class="fa fa-search"></i>
+                    Xem giỏ hàng
                   </button>
                 </div>
                 <button type="button" class="close" data-dismiss="modal">
@@ -78,7 +82,7 @@ function showProductList(list) {
     document.getElementById("detail_watch").innerHTML += contentDetail1;
     document.getElementById(`big_img${product.id}`).innerHTML = contentDetail2;
     document.getElementById(`small_img${product.id}`).innerHTML =
-      contentDetail2;
+    contentDetail2;
     renderSwiper(product.id);
   });
   document.getElementById("shop_watch").innerHTML = contentShop;
