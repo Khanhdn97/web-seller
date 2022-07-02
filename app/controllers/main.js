@@ -27,7 +27,7 @@ function showProductList(list) {
         </div>
         <div class="watch__text">
           <h4>${product.name}</h4>
-          <p>-${product.price} $-</p>
+          <p>- ${product.price} $ -</p>
         </div>
         <div class="watch__overlay"></div>
       </div>
@@ -53,7 +53,7 @@ function showProductList(list) {
                 <div class="detail__text">
                     <p>Tên: ${product.name} </p>
                     <p>Hãng: ${product.brand} </p>
-                    <p>Giá: ${product.price}</p>
+                    <p>Giá: ${product.price} $</p>
                     <p>Kích cỡ: ${product.size}</p>
                     <p>Loại máy: ${product.model}</p>
                     <p>Loại dây: ${product.strap}</p>
@@ -260,6 +260,9 @@ function sortProduct() {
   locSanPham(sortList);
   sapXepSanPham(sortList);
   showProductList(sortList);
+}
+function renderSelect(params) {
+  
 }
 // Lọc sản phẩm theo Nhãn hiệu
 function locSanPham(list) {
