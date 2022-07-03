@@ -28,7 +28,7 @@ function showProductList(list) {
         </div>
         <div class="watch__text">
           <h4>${product.name}</h4>
-          <p>- ${product.price} $ -</p>
+          <p>- ${Number(product.price).toLocaleString()} $ -</p>
         </div>
         <div class="watch__overlay"></div>
       </div>
@@ -54,7 +54,7 @@ function showProductList(list) {
                 <div class="detail__text">
                     <p>Tên: ${product.name} </p>
                     <p>Hãng: ${product.brand} </p>
-                    <p>Giá: ${product.price} $</p>
+                    <p>Giá: ${Number(product.price).toLocaleString()} $</p>
                     <p>Kích cỡ: ${product.size}</p>
                     <p>Loại máy: ${product.model}</p>
                     <p>Loại dây: ${product.strap}</p>
@@ -281,25 +281,11 @@ function renderSortBrand() {
 // Lọc sản phẩm theo Nhãn hiệu
 function locSanPham(list) {
   var selectELE = document.getElementById("locSP").value;
-  switch (selectELE) {
-    case "Orient":
-      timKiem("Orient",list);
-      break;
-    case "Casio":
-      timKiem("Casio",list);
-      break;
-    case "Rolex":
-      timKiem("Rolex",list);
-      break;
-    case "Citizen":
-      timKiem("Citizen",list);
-      break;
-    default:
-      productList.ArrayP.map(function (product,index) {
-        list[index] = product;
-      })
-      break;
-  }
+  if(selectELE == "Lọc Nhãn Hiệu"){
+    productList.ArrayP.map(function (product,index) {
+      list[index] = product;
+    })
+  }else timKiem(selectELE,list);
 }
 function timKiem(value,list) {
   productList.ArrayP.map(function (product) {
