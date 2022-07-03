@@ -7,6 +7,7 @@ function getProductList() {
       productList.ArrayP[index] = product;
     });
     showProductList(result.data);
+    renderSortBrand();
     loading(false);
   });
   promise.catch(function (error) {
@@ -27,7 +28,7 @@ function showProductList(list) {
         </div>
         <div class="watch__text">
           <h4>${product.name}</h4>
-          <p>-${product.price} $-</p>
+          <p>- ${Number(product.price).toLocaleString()} $ -</p>
         </div>
         <div class="watch__overlay"></div>
       </div>
@@ -53,7 +54,7 @@ function showProductList(list) {
                 <div class="detail__text">
                     <p>Tên: ${product.name} </p>
                     <p>Hãng: ${product.brand} </p>
-                    <p>Giá: ${product.price}</p>
+                    <p>Giá: ${Number(product.price).toLocaleString()} $</p>
                     <p>Kích cỡ: ${product.size}</p>
                     <p>Loại máy: ${product.model}</p>
                     <p>Loại dây: ${product.strap}</p>
@@ -256,45 +257,54 @@ function clearAllProduct() {
 document.querySelector("#removeAll").onclick = clearAllProduct;
 document.querySelector("#purchase").onclick = clearAllProduct;
 
+function sortProduct() {
+  var sortList = [];
+  locSanPham(sortList);
+  sapXepSanPham(sortList);
+  showProductList(sortList);
+}
+function renderSortBrand() {
+  var brandList = [];
+  brandList.push(productList.ArrayP[0].brand);
+  productList.ArrayP.map(function(product){
+    var count = 0;
+    for(var i = 0; i<brandList.length;i++){
+      if(brandList[i] == product.brand) count++;
+    }
+    if(count == 0) brandList.push(product.brand)
+  })
+  brandList.map(function(brand){
+    document.getElementById("locSP").innerHTML += `
+    <option value="${brand}">${brand}</option>`
+  })
+}
 
 // Lọc sản phẩm theo Nhãn hiệu
-function locSanPham() {
+function locSanPham(list) {
   var selectELE = document.getElementById("locSP").value;
-  switch (selectELE) {
-    case "Orient":
-      timKiem("Orient");
-      break;
-    case "Casio":
-      timKiem("Casio");
-      break;
-    case "Rolex":
-      timKiem("Rolex");
-      break;
-    case "Citizen":
-      timKiem("Citizen");
-      break;
-    default:
-      getProductList();
-      break;
-  }
+  if(selectELE == "Lọc Nhãn Hiệu"){
+    productList.ArrayP.map(function (product,index) {
+      list[index] = product;
+    })
+  }else timKiem(selectELE,list);
 }
-function timKiem(value) {
-  var mangTK = [];
+function timKiem(value,list) {
   productList.ArrayP.map(function (product) {
     if (product.brand == value) {
-      mangTK.push(product);
-      // console.log(mangTK);
+      list.push(product);
     }
   });
-  showProductList(mangTK);
 }
 // Sắp xếp Giá
-function sapXepSanPham() {
+function sapXepSanPham(list) {
   var sxPriceELE = document.getElementById("sxPrice").value;
+  var mangSX = [];
+  var mangSXCopy = [];
+  list.map(function(product,index){
+      mangSX[index] = product
+  })
   switch (sxPriceELE) {
     case "Tăng dần":
-      var mangSX = productList.ArrayP;
-      var mangSXCopy = [];
       for (var i = 0; i < mangSX.length; i++) {
         mangSXCopy.push(mangSX[i]);
       }
@@ -308,11 +318,12 @@ function sapXepSanPham() {
           }
         }
       }
-      showProductList(mangSXCopy);
+      list.length = 0;
+      mangSXCopy.map(function(product){
+        list.push(product);
+      })
       break;
     case "Giảm dần":
-      var mangSX = productList.ArrayP;
-      var mangSXCopy = [];
       for (var i = 0; i < mangSX.length; i++) {
         mangSXCopy.push(mangSX[i]);
       }
@@ -326,10 +337,13 @@ function sapXepSanPham() {
           }
         }
       }
-      showProductList(mangSXCopy);
+      list.length = 0;
+      mangSXCopy.map(function(product){
+        list.push(product);
+      })
       break;
 
-    default: getProductList();
+    default: ;
       break;
   }
 }

@@ -31,33 +31,6 @@
   <header>
     <div class="header__content">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!-- Menu Bar -->
-        <div class="nav">
-          <label for="defaultCheck1" class="fa-solid fa-bars nav__icon">
-          </label>
-          <input class="nav__input" type="checkbox" value="" id="defaultCheck1">
-          <label for="defaultCheck1" class="nav__overplay"></label>
-          <nav class="nav__text ">
-            <label for="defaultCheck1" class="nav__close">
-              <i class="fa-solid fa-xmark"></i>
-            </label>
-            <ul>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Active</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
-            </ul>
-          </nav>
-
-        </div>
         <span class="navbar-brand" href="#">Web-Seller</span>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
           <span class="navbar-icon" href="#"><i class="fa fa-shopping-cart"></i></span>
@@ -72,16 +45,12 @@
     <div class="container">
       <div class="row">
         <div class="col-4">
-          <select onchange="locSanPham()" class="custom-select my-3" id="locSP">
+          <select onchange="sortProduct()" class="custom-select my-3" id="locSP">
             <option selected>Lọc Nhãn Hiệu</option>
-            <option value="Orient">Orient</option>
-            <option value="Casio">Casio</option>
-            <option value="Rolex">Rolex</option>
-            <option value="Citizen">Citizen</option>
           </select>
         </div>
         <div class="col-4">
-          <select onchange="sapXepSanPham()" class="custom-select my-3" id="sxPrice">
+          <select onchange="sortProduct()" class="custom-select my-3" id="sxPrice">
             <option selected>Mặc định</option>
             <option value="Tăng dần">Giá Tăng dần</option>
             <option value="Giảm dần">Giá Giảm dần</option>
