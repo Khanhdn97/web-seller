@@ -183,6 +183,7 @@ function renderCart() {
 function renderTotal() {
   var totalPrice = 0;
   var totalItem = 0;
+  
   cart.forEach(function (product) {
     totalPrice += (product.price * product.quantity);
     totalItem += product.quantity;
@@ -196,20 +197,20 @@ function renderCartItem() {
   cart.map(function (product) {
     ele += `
         <tr class = "cart__content">
-            <td><img style="width: 50px" src= "${product.img}"></td>
+            <td><img src= "${product.img}"></td>
             <td>${product.name}</td>
             <td>
                 <div class="quantity">
-                  <div class="quantity sub" onclick="changeQuatily('sub', ${product.id})"><</div>
+                  <div class="btn__quantity sub" onclick="changeQuatily('sub', ${product.id})"><</div>
                   <div class="number">${product.quantity}</div>
-                  <div class="quantity add" onclick="changeQuatily('add', ${product.id})">></div>
+                  <div class="btn__quantity add" onclick="changeQuatily('add', ${product.id})">></div>
                 </div>
             </td>
             <td>${product.price}</td>
             <td>
-                <button class="btn btn-danger" onclick= "removeProduct(${product.id})">
-                <i class="fa fa-trash"></i>
-                </button>
+                <div class="delete__item" onclick="removeProduct(${product.id})">
+                  <i class="fa fa-trash"></i>
+                </div>
             </td>
         </tr>
         `;

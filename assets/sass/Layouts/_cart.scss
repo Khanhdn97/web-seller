@@ -1,44 +1,79 @@
-.cart{
-    .table__cart{
+.cart {
+    .modal-header {
+        display: inline;
         text-align: center;
-        .cart__content{
+        position: relative;
+        h5 {
+            display: inline;
+            font-weight: 700;
+        }
+        .close {
+            position: absolute;
+            top: 35px;
+            right: 35px;
+            padding: 0;
+        }
+    }
+    .table__cart {
+        text-align: center;
+        .cart__content {
             line-height: 5;
-            td{
+            td {
                 padding: 0;
-                .quantity{
+                img {
+                    width: 50px;
+                }
+                .quantity {
                     display: flex;
                     align-items: center;
                     justify-content: space-evenly;
                     padding: 0 10px;
-                    .quantity{
+                    .btn__quantity {
                         text-align: center;
                         font-weight: bold;
-                        line-height: 20px;
+                        line-height: 24px;
                         width: 20px;
-                        height: 20px;
+                        height: 25px;
                         border-radius: 50%;
                         background-color: rgb(242, 255, 58);
                         cursor: pointer;
+                        transition: all .5s;
+
+                        &:hover{
+                            background-color: #BDB76B;
+                            color: #008080	;
+                        }
                     }
-                    .number{
+                    .number {
                         padding: 0 5px;
+                    }
+                }
+                .delete__item {
+                    i {
+                        cursor: pointer;
+                        font-size: 18px;
+                        transition: all .4s;
+                        &:hover {
+                            color: red;
+                        }
                     }
                 }
             }
         }
     }
-    .cart__footer{
+    .cart__footer {
         display: flex;
         align-items: center;
         justify-content: space-between;
         border-top: 1px solid #dee2e6;
-        .cart__total{
+        .cart__total {
             padding: 0.75rem;
-            p{
+            p {
+                font-weight: 600;
                 margin: 0;
             }
         }
-        .modal-footer{
+        .modal-footer {
             border: none;
         }
     }
