@@ -16,6 +16,20 @@
     }
     .table__cart {
         text-align: center;
+        margin: 0;
+        .tr__empty{
+            height: 100px;
+            position: relative;
+            .td__empty{
+                position: absolute;
+                top: 7px;
+                left: 0;
+                font-size: 24px;
+                font-weight: 600;
+                color: gray;
+                border: none;
+            }
+        }
         .cart__content {
             line-height: 5;
             td {
@@ -37,11 +51,11 @@
                         border-radius: 50%;
                         background-color: rgb(242, 255, 58);
                         cursor: pointer;
-                        transition: all .5s;
+                        transition: all 0.5s;
 
-                        &:hover{
-                            background-color: #BDB76B;
-                            color: #008080	;
+                        &:hover {
+                            background-color: #bdb76b;
+                            color: #008080;
                         }
                     }
                     .number {
@@ -52,7 +66,7 @@
                     i {
                         cursor: pointer;
                         font-size: 18px;
-                        transition: all .4s;
+                        transition: all 0.4s;
                         &:hover {
                             color: red;
                         }

@@ -1,13 +1,16 @@
 header{
     .header__content{
-        position: relative;
         .navbar{
             display: flex;
             justify-content: space-between;
+            padding: 1em 1.5em;
+            .cart__watch{
+                position: relative;
+            }
             .total__item{
                 position: absolute;
-                top: 5px;
-                right: 7px;
+                top: -12px;
+                right: -10px;
                 width: 1.5rem;
                 height: 1.5rem;
                 background-color: yellow;

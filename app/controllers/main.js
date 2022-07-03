@@ -194,9 +194,21 @@ function renderTotal() {
 }
 // Hiển thị giỏ hàng
 function renderCartItem() {
-  var ele = "";
+
+  var content = "";
+
+  if(cart == ""){
+    content = `
+      <tr class="tr__empty">
+        <td class="td__empty">
+          Có vẻ như bạn chưa thêm bất kỳ sản phẩm nào vào giỏ hàng.
+        </td>
+      </tr>
+    `
+  }
+  
   cart.map(function (product) {
-    ele += `
+    content += `
         <tr class = "cart__content">
             <td><img src= "${product.img}"></td>
             <td>${product.name}</td>
@@ -216,7 +228,7 @@ function renderCartItem() {
         </tr>
         `;
   });
-  document.querySelector("#mytbody").innerHTML = ele;
+  document.querySelector("#mytbody").innerHTML = content;
 }
 // Thay đổi số lượng sản phẩm
 function changeQuatily(action, id) {
