@@ -259,19 +259,20 @@ body {
   }
 }
 
-header .header__content {
-  position: relative;
-}
-
 header .header__content .navbar {
   display: flex;
   justify-content: space-between;
+  padding: 1em 1.5em;
+}
+
+header .header__content .navbar .cart__watch {
+  position: relative;
 }
 
 header .header__content .navbar .total__item {
   position: absolute;
-  top: 5px;
-  right: 7px;
+  top: -12px;
+  right: -10px;
   width: 1.5rem;
   height: 1.5rem;
   background-color: yellow;
@@ -559,8 +560,42 @@ header .header__content .nav__input:checked ~ .container {
   transform: translateY(5px);
 }
 
+.cart .modal-header {
+  display: inline;
+  text-align: center;
+  position: relative;
+}
+
+.cart .modal-header h5 {
+  display: inline;
+  font-weight: 700;
+}
+
+.cart .modal-header .close {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  padding: 0;
+}
+
 .cart .table__cart {
   text-align: center;
+  margin: 0;
+}
+
+.cart .table__cart .tr__empty {
+  height: 100px;
+  position: relative;
+}
+
+.cart .table__cart .tr__empty .td__empty {
+  position: absolute;
+  top: 7px;
+  left: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: gray;
+  border: none;
 }
 
 .cart .table__cart .cart__content {
@@ -571,6 +606,10 @@ header .header__content .nav__input:checked ~ .container {
   padding: 0;
 }
 
+.cart .table__cart .cart__content td img {
+  width: 50px;
+}
+
 .cart .table__cart .cart__content td .quantity {
   display: flex;
   align-items: center;
@@ -578,19 +617,35 @@ header .header__content .nav__input:checked ~ .container {
   padding: 0 10px;
 }
 
-.cart .table__cart .cart__content td .quantity .quantity {
+.cart .table__cart .cart__content td .quantity .btn__quantity {
   text-align: center;
   font-weight: bold;
-  line-height: 20px;
+  line-height: 24px;
   width: 20px;
-  height: 20px;
+  height: 25px;
   border-radius: 50%;
   background-color: #f2ff3a;
   cursor: pointer;
+  transition: all 0.5s;
+}
+
+.cart .table__cart .cart__content td .quantity .btn__quantity:hover {
+  background-color: #bdb76b;
+  color: #008080;
 }
 
 .cart .table__cart .cart__content td .quantity .number {
   padding: 0 5px;
+}
+
+.cart .table__cart .cart__content td .delete__item i {
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.4s;
+}
+
+.cart .table__cart .cart__content td .delete__item i:hover {
+  color: red;
 }
 
 .cart .cart__footer {
@@ -605,6 +660,7 @@ header .header__content .nav__input:checked ~ .container {
 }
 
 .cart .cart__footer .cart__total p {
+  font-weight: 600;
   margin: 0;
 }
 
