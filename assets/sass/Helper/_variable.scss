@@ -1,0 +1,18 @@
+:root {
+    --color-bg-1: white;
+    --color-bg-2: rgba(246, 246, 246, 0.6);
+    --color-text: rgb(0, 0, 0);
+    --color-text-shadow: rgba(0, 0, 0, 0.3);
+    --color-logo: rgb(54, 54, 54);
+    --transition-switch: all 0.6s;
+    --header-bg: linear-gradient(to left, rgb(255, 255, 255, 0),rgb(255, 255, 255, 0.7), rgb(255, 255, 255, 1));
+}
+.dark {
+    --color-bg-1: rgb(0, 0, 0);
+    --color-bg-2: rgba(0, 0, 0, 0.6);
+    --color-text: rgb(255, 255, 255);
+    --color-text-shadow: rgba(255, 255, 255, 1);
+    --color-logo: rgb(255, 255, 255);
+    --color-logo-shadow: rgba(255, 255, 255, 1);
+    --header-bg: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgb(255, 255, 255,0.3),rgb(255, 255, 255, 0));
+}

@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Web-Seller</title>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JNKKKK/MoreToggles.css@0.2.1/output/moretoggles.min.css">
   <!-- BS4 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
     integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
@@ -27,36 +28,22 @@
   <link rel="stylesheet" href="./assets/css/main.css" />
 </head>
 
-<!-- BS4 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-  integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-  integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
-<!-- Google Font -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
-<!-- Slick Slider -->
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-<!-- Link Swiper's CSS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<!-- Main css -->
-<link rel="stylesheet" href="./assets/css/main.css" />
-</head>
-
-<body>
+<body class="">
   <header>
     <div class="header__content">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <span class="navbar-brand" href="#">Web-Seller</span>
-        <div class="cart__watch">
-          <button type="button" class="btn btn-primary btn__cart" data-toggle="modal" data-target="#exampleModal">
-            <span class="navbar-icon" href="#"><i class="fa fa-shopping-cart"></i></span>
-          </button>
-          <span class="total__item">0</span>
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#"><i class="fab fa-battle-net"></i>  CYBER WATCH</a>
+        <div class="navbar__func">
+          <div class="mt-ios "> 
+            <input onclick="switchTheme()" id="switchTheme" type="checkbox" />
+            <label for="switchTheme"></label>
+          </div>
+          <div class="cart__watch">
+            <button type="button" class="btn btn__cart" data-toggle="modal" data-target="#exampleModal">
+              <span class="navbar-icon" href="#"><i class="fa fa-shopping-cart"></i></span>
+            </button>
+            <span class="total__item">0</span>
+          </div>
         </div>
       </nav>
     </div>
@@ -134,7 +121,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="cart__modal">
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -165,11 +152,11 @@
               <p id="price">Tổng tiền: <span>$0</span></p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-success" id="purchase" data-dismiss="modal">
+              <button type="button" class="btn button-36 button-38" id="purchase" data-dismiss="modal">
                 Thanh toán
                 <i class="fa fa-credit-card"></i>
               </button>
-              <button type="button" class="btn btn-danger" id="removeAll">
+              <button type="button" class="btn button-36 button-37" id="removeAll">
                 Xóa tất cả
                 <i class="fa fa-trash"></i>
               </button>

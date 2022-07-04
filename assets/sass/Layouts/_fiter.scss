@@ -1,12 +1,23 @@
-.filter{
-    .Input_search{
-        i{
-            background-color: yellow;
+.filter {
+    .form-control, .custom-select{
+        transition: var(--transition-switch);
+        background-color: var(--color-bg-1);
+        color: var(--color-text);
+        box-shadow: 0 0 15px var(--color-text-shadow);
+    }
+    .Input_search {
+        border-radius: 5px;
+        box-shadow: 0 0 15px var(--color-text-shadow);
+        i {
+            background-color: var(--color-bg-1);
+            color: var(--color-text);
+            box-shadow: 0 0 15px var(--color-text-shadow);
             width: 50px;
             text-align: center;
             height: 35px;
             line-height: 35px;
             cursor: pointer;
+            border: 1px solid var(--color-text);
         }
     }
 }

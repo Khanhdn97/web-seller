@@ -52,13 +52,13 @@ function showProductList(list) {
               </div>
             <div class="detail__right">
                 <div class="detail__text">
-                    <p>Tên: ${product.name} </p>
-                    <p>Hãng: ${product.brand} </p>
-                    <p>Giá: ${Number(product.price).toLocaleString()} $</p>
-                    <p>Kích cỡ: ${product.size}</p>
-                    <p>Loại máy: ${product.model}</p>
-                    <p>Loại dây: ${product.strap}</p>
-                    <p>Mô tả: ${product.desc}</p>
+                    <p>Tên: <span>${product.name}</span>  </p>
+                    <p>Hãng: <span> ${product.brand}</span> </p>
+                    <p>Giá: <span>${Number(product.price).toLocaleString()}</span>  $</p>
+                    <p>Kích cỡ: <span>${product.size}</span></p>
+                    <p>Loại máy: <span> ${product.model}</span></p>
+                    <p>Loại dây: <span> ${product.strap}</span></p>
+                    <p>Mô tả: <span> ${product.desc}</span></p>
                 </div>
                 <div class="detail__button">
                   <button class="btn btn-info button-36" onclick="addToCart('${product.id}')" data-dismiss="modal">
@@ -138,7 +138,12 @@ function loading(boolean) {
     document.getElementById('loading').style.visibility = "hidden";
   }
 }
-
+function switchTheme() {
+  var box = document.getElementById("switchTheme");
+  if(box.checked == true){
+    document.querySelector("body").classList.add("dark");
+  }else document.querySelector("body").classList.remove("dark");
+}
 getProductList();
 
 var cart = JSON.parse(localStorage.getItem("CART")) || [];

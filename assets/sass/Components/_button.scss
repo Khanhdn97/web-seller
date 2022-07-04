@@ -30,6 +30,18 @@
   background-image: linear-gradient(92.88deg, #ef6f0e 9.16%, #e03c1b 43.89%, #f25e4e 64.72%);
 }
 .button-37:hover {
-  box-shadow: rgba(227, 15, 15, 0.728) 0 1px 20px;
+  box-shadow: rgba(227, 15, 15, 0.915) 0 1px 20px;
   transition-duration: .1s;
+}
+.button-38{
+  background-image: linear-gradient(92.88deg, #1c4ecc 9.16%, #2e1cd5 43.89%, #4e8df2 64.72%);
+}
+.button-38:hover {
+  box-shadow: rgba(19, 15, 227, 0.958) 0 1px 20px;
+  transition-duration: .1s;
+}
+.close{
+  span{
+    color: var(--color-text);
+  }
 }

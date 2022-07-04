@@ -13,3 +13,6 @@
     align-items: $align;
     justify-content: $just;
 }
+@mixin bgColor($bg) {
+    background-color: $bg ;
+}
