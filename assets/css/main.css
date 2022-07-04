@@ -55,6 +55,41 @@
           transform: scale(1);
 }
 
+.button-36 {
+  background-image: linear-gradient(92.88deg, #41da4e 9.16%, #43cc57 43.89%, #3fd744 64.72%);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: "Inter UI","SF Pro Display","Segoe UI","Roboto",Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 50px;
+  padding: 0px 10px;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-36:hover {
+  box-shadow: rgba(120, 241, 15, 0.83) 0 1px 20px;
+  transition-duration: .1s;
+}
+
+.button-37 {
+  background-image: linear-gradient(92.88deg, #ef6f0e 9.16%, #e03c1b 43.89%, #f25e4e 64.72%);
+}
+
+.button-37:hover {
+  box-shadow: rgba(227, 15, 15, 0.728) 0 1px 20px;
+  transition-duration: .1s;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -293,23 +328,28 @@ body {
   }
 }
 
-header .header__content {
-  position: relative;
-}
-
 header .header__content .navbar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+<<<<<<< HEAD
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+=======
+  justify-content: space-between;
+  padding: 1em 1.5em;
+}
+
+header .header__content .navbar .cart__watch {
+  position: relative;
+>>>>>>> 7845d1032d42400cc6e81b03f45f7a2e81e7948c
 }
 
 header .header__content .navbar .total__item {
   position: absolute;
-  top: 5px;
-  right: 7px;
+  top: -12px;
+  right: -10px;
   width: 1.5rem;
   height: 1.5rem;
   background-color: yellow;
@@ -427,12 +467,16 @@ header .header__content .nav__input:checked ~ .container {
   width: 55%;
   height: 90%;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
 }
 
 .detail__watch .detail .detail__left .big__img {
   width: 100%;
   height: 65vh;
   padding: 0;
+  border: 1px solid rgba(164, 164, 164, 0.6);
 }
 
 .detail__watch .detail .detail__left .big__img img {
@@ -442,8 +486,8 @@ header .header__content .nav__input:checked ~ .container {
 .detail__watch .detail .detail__left .small__img {
   height: 100%;
   margin-top: 20px;
-  border-top: 1px solid rgba(162, 160, 160, 0.3);
-  border-bottom: 1px solid rgba(162, 160, 160, 0.3);
+  border-top: 1px solid rgba(162, 160, 160, 0.6);
+  border-bottom: 1px solid rgba(162, 160, 160, 0.6);
 }
 
 .detail__watch .detail .detail__left .small__img .swiper-wrapper {
@@ -499,11 +543,17 @@ header .header__content .nav__input:checked ~ .container {
           justify-content: space-between;
   width: 30%;
   height: unset;
+<<<<<<< HEAD
   padding: 20px 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+=======
+  padding: 10px 0;
+  flex-direction: column;
+  align-content: space-between;
+>>>>>>> 7845d1032d42400cc6e81b03f45f7a2e81e7948c
   position: relative;
 }
 
@@ -511,8 +561,17 @@ header .header__content .nav__input:checked ~ .container {
   font-size: 18px;
   font-weight: 600;
   color: black;
-  border-left: 1px solid rgba(128, 128, 128, 0.391);
-  padding-left: 10px;
+}
+
+.detail__watch .detail .detail__right .detail__button {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid rgba(162, 160, 160, 0.6);
+}
+
+.detail__watch .detail .detail__right .detail__button .btn {
+  width: 48%;
 }
 
 .detail__watch .detail .detail__right .close {
@@ -546,6 +605,7 @@ header .header__content .nav__input:checked ~ .container {
   will-change: box-shadow, transform;
   cursor: pointer;
   border: 1px solid rgba(178, 178, 178, 0.753);
+  border-radius: 10px;
   overflow: hidden;
   width: 100%;
   height: 450px;
@@ -645,8 +705,42 @@ header .header__content .nav__input:checked ~ .container {
           transform: translateY(5px);
 }
 
+.cart .modal-header {
+  display: inline;
+  text-align: center;
+  position: relative;
+}
+
+.cart .modal-header h5 {
+  display: inline;
+  font-weight: 700;
+}
+
+.cart .modal-header .close {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  padding: 0;
+}
+
 .cart .table__cart {
   text-align: center;
+  margin: 0;
+}
+
+.cart .table__cart .tr__empty {
+  height: 100px;
+  position: relative;
+}
+
+.cart .table__cart .tr__empty .td__empty {
+  position: absolute;
+  top: 7px;
+  left: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: gray;
+  border: none;
 }
 
 .cart .table__cart .cart__content {
@@ -655,6 +749,10 @@ header .header__content .nav__input:checked ~ .container {
 
 .cart .table__cart .cart__content td {
   padding: 0;
+}
+
+.cart .table__cart .cart__content td img {
+  width: 50px;
 }
 
 .cart .table__cart .cart__content td .quantity {
@@ -670,19 +768,35 @@ header .header__content .nav__input:checked ~ .container {
   padding: 0 10px;
 }
 
-.cart .table__cart .cart__content td .quantity .quantity {
+.cart .table__cart .cart__content td .quantity .btn__quantity {
   text-align: center;
   font-weight: bold;
-  line-height: 20px;
+  line-height: 24px;
   width: 20px;
-  height: 20px;
+  height: 25px;
   border-radius: 50%;
   background-color: #f2ff3a;
   cursor: pointer;
+  transition: all 0.5s;
+}
+
+.cart .table__cart .cart__content td .quantity .btn__quantity:hover {
+  background-color: #bdb76b;
+  color: #008080;
 }
 
 .cart .table__cart .cart__content td .quantity .number {
   padding: 0 5px;
+}
+
+.cart .table__cart .cart__content td .delete__item i {
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.4s;
+}
+
+.cart .table__cart .cart__content td .delete__item i:hover {
+  color: red;
 }
 
 .cart .cart__footer {
@@ -703,6 +817,7 @@ header .header__content .nav__input:checked ~ .container {
 }
 
 .cart .cart__footer .cart__total p {
+  font-weight: 600;
   margin: 0;
 }
 
@@ -723,6 +838,7 @@ header .header__content .nav__input:checked ~ .container {
   line-height: 35px;
   cursor: pointer;
 }
+<<<<<<< HEAD
 
 /* CSS */
 .button-36 {
@@ -764,4 +880,6 @@ header .header__content .nav__input:checked ~ .container {
     padding: 0 2.6rem;
   }
 }
+=======
+>>>>>>> 7845d1032d42400cc6e81b03f45f7a2e81e7948c
 /*# sourceMappingURL=main.css.map */

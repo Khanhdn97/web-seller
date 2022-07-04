@@ -7,6 +7,7 @@ function getProductList() {
       productList.ArrayP[index] = product;
     });
     showProductList(result.data);
+    renderSortBrand();
     loading(false);
   });
   promise.catch(function (error) {
@@ -27,7 +28,7 @@ function showProductList(list) {
         </div>
         <div class="watch__text">
           <h4>${product.name}</h4>
-          <p>-${product.price} $-</p>
+          <p>- ${Number(product.price).toLocaleString()} $ -</p>
         </div>
         <div class="watch__overlay"></div>
       </div>
@@ -53,16 +54,20 @@ function showProductList(list) {
                 <div class="detail__text">
                     <p>Tên: ${product.name} </p>
                     <p>Hãng: ${product.brand} </p>
-                    <p>Giá: ${product.price}</p>
+                    <p>Giá: ${Number(product.price).toLocaleString()} $</p>
                     <p>Kích cỡ: ${product.size}</p>
                     <p>Loại máy: ${product.model}</p>
                     <p>Loại dây: ${product.strap}</p>
                     <p>Mô tả: ${product.desc}</p>
                 </div>
-                <div class="detail__Add">
+                <div class="detail__button">
                   <button class="btn btn-info button-36" onclick="addToCart('${product.id}')" data-dismiss="modal">
-                    Add
                     <i class="fa fa-plus"></i>
+                    Thêm vào giỏ
+                  </button>
+                  <button class="btn btn-info button-36 button-37" data-dismiss="modal" data-toggle = "modal" data-target="#exampleModal">
+                    <i class="fa fa-search"></i>
+                    Xem giỏ hàng
                   </button>
                 </div>
                 <button type="button" class="close" data-dismiss="modal">
@@ -179,6 +184,7 @@ function renderCart() {
 function renderTotal() {
   var totalPrice = 0;
   var totalItem = 0;
+
   cart.forEach(function (product) {
     totalPrice += (product.price * product.quantity);
     totalItem += product.quantity;
@@ -189,29 +195,41 @@ function renderTotal() {
 }
 // Hiển thị giỏ hàng
 function renderCartItem() {
-  var ele = "";
+
+  var content = "";
+
+  if (cart == "") {
+    content = `
+      <tr class="tr__empty">
+        <td class="td__empty">
+          Có vẻ như bạn chưa thêm bất kỳ sản phẩm nào vào giỏ hàng.
+        </td>
+      </tr>
+    `;
+  }
+
   cart.map(function (product) {
-    ele += `
+    content += `
         <tr class = "cart__content">
-            <td><img style="width: 50px" src= "${product.img}"></td>
+            <td><img src= "${product.img}"></td>
             <td>${product.name}</td>
             <td>
                 <div class="quantity">
-                  <div class="quantity sub" onclick="changeQuatily('sub', ${product.id})"><</div>
+                  <div class="btn__quantity sub" onclick="changeQuatily('sub', ${product.id})"><</div>
                   <div class="number">${product.quantity}</div>
-                  <div class="quantity add" onclick="changeQuatily('add', ${product.id})">></div>
+                  <div class="btn__quantity add" onclick="changeQuatily('add', ${product.id})">></div>
                 </div>
             </td>
             <td>${product.price}</td>
             <td>
-                <button class="btn btn-danger" onclick= "removeProduct(${product.id})">
-                <i class="fa fa-trash"></i>
-                </button>
+                <div class="delete__item" onclick="removeProduct(${product.id})">
+                  <i class="fa fa-trash"></i>
+                </div>
             </td>
         </tr>
         `;
   });
-  document.querySelector("#mytbody").innerHTML = ele;
+  document.querySelector("#mytbody").innerHTML = content;
 }
 // Thay đổi số lượng sản phẩm
 function changeQuatily(action, id) {
@@ -252,56 +270,75 @@ function clearAllProduct() {
 document.querySelector("#removeAll").onclick = clearAllProduct;
 document.querySelector("#purchase").onclick = clearAllProduct;
 
+function sortProduct() {
+  var sortList = [];
+  locSanPham(sortList);
+  sapXepSanPham(sortList);
+  showProductList(sortList);
+}
+function renderSortBrand() {
+  var brandList = [];
+  brandList.push(productList.ArrayP[0].brand);
+  productList.ArrayP.map(function (product) {
+    var count = 0;
+    for (var i = 0; i < brandList.length; i++) {
+      if (brandList[i] == product.brand) count++;
+    }
+    if (count == 0) brandList.push(product.brand);
+  });
+  brandList.map(function (brand) {
+    document.getElementById("locSP").innerHTML += `
+    <option value="${brand}">${brand}</option>`;
+  });
+}
 
 // Lọc sản phẩm theo Nhãn hiệu
 
 const mangSX = productList.ArrayP;
 
-function locSanPham() {
+function locSanPham(list) {
   var selectELE = document.getElementById("locSP").value;
-  switch (selectELE) {
-    case "Orient":
-      timKiem("Orient");
-      break;
-    case "Casio":
-      timKiem("Casio");
-      break;
-    case "Rolex":
-      timKiem("Rolex");
-      break;
-    case "Citizen":
-      timKiem("Citizen");
-      break;
-    default:
-      getProductList();
-      break;
-  }
+  if (selectELE == "Lọc Nhãn Hiệu") {
+    productList.ArrayP.map(function (product, index) {
+      list[index] = product;
+    });
+  } else timKiem(selectELE, list);
 }
-function timKiem(value) {
-  var mangTK = [];
-  mangSX.map(function (product) {
+function timKiem(value, list) {
+  productList.ArrayP.map(function (product) {
     if (product.brand == value) {
-      mangTK.push(product);
+      list.push(product);
     }
   });
-  showProductList(mangTK);
 }
 // Sắp xếp Giá
-function sapXepSanPham() {
+function sapXepSanPham(list) {
   var sxPriceELE = document.getElementById("sxPrice").value;
+  var mangSX = [];
+  var mangSXCopy = [];
+  list.map(function (product, index) {
+    mangSX[index] = product;
+  });
   switch (sxPriceELE) {
     case "Tăng dần":
       var mangSXCopy = [];
       mangSXCopy = productList.sapXepTangDan(mangSXCopy);
-      showProductList(mangSXCopy);
+      // showProductList(mangSXCopy);
+      list.length = 0;
+      mangSXCopy.map(function (product) {
+        list.push(product);
+      });
       break;
     case "Giảm dần":
       var mangSXCopy = [];
       mangSXCopy = productList.sapXepGiamDan(mangSXCopy);
-      showProductList(mangSXCopy);
+      // showProductList(mangSXCopy);
+      list.length = 0;
+      mangSXCopy.map(function (product) {
+        list.push(product);
+      });
       break;
-
-    default: getProductList();
+    default: ;
       break;
   }
 }

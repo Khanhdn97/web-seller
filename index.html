@@ -27,49 +27,38 @@
   <link rel="stylesheet" href="./assets/css/main.css" />
 </head>
 
+<!-- BS4 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+  integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+  integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+<!-- Slick Slider -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<!-- Main css -->
+<link rel="stylesheet" href="./assets/css/main.css" />
+</head>
+
 <body>
   <header>
     <div class="header__content">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!-- Menu Bar -->
-        <div class="nav">
-          <label for="defaultCheck1" class="fa-solid fa-bars nav__icon">
-          </label>
-          <input class="nav__input" type="checkbox" value="" id="defaultCheck1">
-          <label for="defaultCheck1" class="nav__overplay"></label>
-          <nav class="nav__text ">
-            <label for="defaultCheck1" class="nav__close">
-              <i class="fa-solid fa-xmark"></i>
-            </label>
-            <span>Tìm kiếm</span>
-            <ul>
-              <!-- <label class="nav-item">
-                <select onchange="locSanPham()" class="custom-select my-3" id="locSP">
-                  <option selected>Lọc Nhãn Hiệu</option>
-                  <option value="Orient">Orient</option>
-                  <option value="Casio">Casio</option>
-                  <option value="Rolex">Rolex</option>
-                  <option value="Citizen">Citizen</option>
-                </select>
-              </label> -->
-              <li class="nav-item">
-                <!-- <select onchange="sapXepSanPham()" class="custom-select my-3" id="sxPrice">
-                  <option selected>Mặc định</option>
-                  <option value="Tăng dần">Giá Tăng dần</option>
-                  <option value="Giảm dần">Giá Giảm dần</option>
-                </select> -->
-              </li>
-            </ul>
-          </nav>
-
-        </div>
         <span class="navbar-brand" href="#">Web-Seller</span>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          <span class="navbar-icon" href="#"><i class="fa fa-shopping-cart"></i></span>
-        </button>
-        <span class="total__item">0</span>
+        <div class="cart__watch">
+          <button type="button" class="btn btn-primary btn__cart" data-toggle="modal" data-target="#exampleModal">
+            <span class="navbar-icon" href="#"><i class="fa fa-shopping-cart"></i></span>
+          </button>
+          <span class="total__item">0</span>
+        </div>
       </nav>
-
     </div>
   </header>
 
@@ -77,16 +66,12 @@
     <div class="container">
       <div class="row">
         <div class="col-4">
-          <select onchange="locSanPham()" class="custom-select my-3" id="locSP">
+          <select onchange="sortProduct()" class="custom-select my-3" id="locSP">
             <option selected>Lọc Nhãn Hiệu</option>
-            <option value="Orient">Orient</option>
-            <option value="Casio">Casio</option>
-            <option value="Rolex">Rolex</option>
-            <option value="Citizen">Citizen</option>
           </select>
         </div>
         <div class="col-4">
-          <select onchange="sapXepSanPham()" class="custom-select my-3" id="sxPrice">
+          <select onchange="sortProduct()" class="custom-select my-3" id="sxPrice">
             <option selected>Mặc định</option>
             <option value="Tăng dần">Giá Tăng dần</option>
             <option value="Giảm dần">Giá Giảm dần</option>
@@ -94,7 +79,7 @@
         </div>
         <div class="col-4">
           <div class="Input_search d-flex align-items-center my-3">
-            <input type="text" id="inputSP" class="form-control" placeholder="Nhập Tên Sản Phẩm">
+            <input type="text" id="inputSP" class="form-control" placeholder="Nhập Tên Sản Phẩm" />
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
         </div>
@@ -155,7 +140,7 @@
       <div class="modal-dialog">
         <div class="modal-content cart">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Giỏ hàng</h5>
+            <h5 class="modal-title" id="exampleModalLabel">GIỎ HÀNG</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -172,7 +157,6 @@
                 </tr>
               </thead>
               <tbody id="mytbody">
-
               </tbody>
             </table>
           </div>
@@ -183,13 +167,14 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-success" id="purchase" data-dismiss="modal">
                 Thanh toán
+                <i class="fa fa-credit-card"></i>
               </button>
               <button type="button" class="btn btn-danger" id="removeAll">
                 Xóa tất cả
+                <i class="fa fa-trash"></i>
               </button>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -215,8 +200,6 @@
   <script src="./app/services/ProductList.js"></script>
   <script src="./app/services/CartList.js"></script>
   <script src="./app/controllers/main.js"></script>
-
-
 </body>
 
 </html>
