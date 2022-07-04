@@ -457,7 +457,7 @@ header .header__content .navbar .navbar__func .total__item {
 
 .detail__watch .modal-content .detail .detail__left .small__img .swiper-wrapper .swiper-slide-thumb-active {
   transform: scale(1);
-  border: 3px solid black;
+  border: 3px solid var(--color-text);
 }
 
 .detail__watch .modal-content .detail .detail__right {
