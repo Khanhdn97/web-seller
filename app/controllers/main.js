@@ -83,7 +83,7 @@ function showProductList(list) {
     document.getElementById("detail_watch").innerHTML += contentDetail1;
     document.getElementById(`big_img${product.id}`).innerHTML = contentDetail2;
     document.getElementById(`small_img${product.id}`).innerHTML =
-    contentDetail2;
+      contentDetail2;
     renderSwiper(product.id);
   });
   document.getElementById("shop_watch").innerHTML = contentShop;
@@ -178,18 +178,19 @@ function renderCart() {
 
   // lưu vào local storage
 
-  localStorage.setItem("CART", JSON.stringify(cart))
+  localStorage.setItem("CART", JSON.stringify(cart));
 }
 // Tính tiền tổng tiền
 function renderTotal() {
   var totalPrice = 0;
   var totalItem = 0;
-  
+
   cart.forEach(function (product) {
     totalPrice += (product.price * product.quantity);
     totalItem += product.quantity;
   });
-  document.querySelector("#price").innerHTML = `Tổng tiền: $${totalPrice}`
+  // document.querySelector("#price").innerHTML = `Tổng tiền: $${totalPrice}`;
+  document.querySelector("#price").innerHTML = `Tổng tiền: $${totalPrice}`;
   document.querySelector(".total__item").innerHTML = totalItem;
 }
 // Hiển thị giỏ hàng
@@ -197,16 +198,16 @@ function renderCartItem() {
 
   var content = "";
 
-  if(cart == ""){
+  if (cart == "") {
     content = `
       <tr class="tr__empty">
         <td class="td__empty">
           Có vẻ như bạn chưa thêm bất kỳ sản phẩm nào vào giỏ hàng.
         </td>
       </tr>
-    `
+    `;
   }
-  
+
   cart.map(function (product) {
     content += `
         <tr class = "cart__content">
@@ -232,7 +233,7 @@ function renderCartItem() {
 }
 // Thay đổi số lượng sản phẩm
 function changeQuatily(action, id) {
-  cart = cart.map(function(product) {
+  cart = cart.map(function (product) {
     var quantity = product.quantity;
 
     if (product.id == id) {
@@ -257,7 +258,7 @@ function changeQuatily(action, id) {
 function removeProduct(id) {
   cart = cart.filter(function (product) {
     return product.id != id;
-  })
+  });
   renderCart();
 }
 
@@ -278,29 +279,36 @@ function sortProduct() {
 function renderSortBrand() {
   var brandList = [];
   brandList.push(productList.ArrayP[0].brand);
-  productList.ArrayP.map(function(product){
+  productList.ArrayP.map(function (product) {
     var count = 0;
-    for(var i = 0; i<brandList.length;i++){
-      if(brandList[i] == product.brand) count++;
+    for (var i = 0; i < brandList.length; i++) {
+      if (brandList[i] == product.brand) {
+        count++;
+      };
     }
-    if(count == 0) brandList.push(product.brand)
-  })
-  brandList.map(function(brand){
+    if (count == 0) {
+      brandList.push(product.brand);
+    };
+  });
+  brandList.map(function (brand) {
     document.getElementById("locSP").innerHTML += `
-    <option value="${brand}">${brand}</option>`
-  })
+    <option value="${brand}">${brand}</option>`;
+  });
 }
 
 // Lọc sản phẩm theo Nhãn hiệu
+
+const mangSX = productList.ArrayP;
+
 function locSanPham(list) {
   var selectELE = document.getElementById("locSP").value;
-  if(selectELE == "Lọc Nhãn Hiệu"){
-    productList.ArrayP.map(function (product,index) {
+  if (selectELE == "Lọc Nhãn Hiệu") {
+    productList.ArrayP.map(function (product, index) {
       list[index] = product;
-    })
-  }else timKiem(selectELE,list);
+    });
+  } else timKiem(selectELE, list);
 }
-function timKiem(value,list) {
+function timKiem(value, list) {
   productList.ArrayP.map(function (product) {
     if (product.brand == value) {
       list.push(product);
@@ -312,9 +320,9 @@ function sapXepSanPham(list) {
   var sxPriceELE = document.getElementById("sxPrice").value;
   var mangSX = [];
   var mangSXCopy = [];
-  list.map(function(product,index){
-      mangSX[index] = product
-  })
+  list.map(function (product, index) {
+    mangSX[index] = product;
+  });
   switch (sxPriceELE) {
     case "Tăng dần":
       for (var i = 0; i < mangSX.length; i++) {
@@ -331,9 +339,9 @@ function sapXepSanPham(list) {
         }
       }
       list.length = 0;
-      mangSXCopy.map(function(product){
+      mangSXCopy.map(function (product) {
         list.push(product);
-      })
+      });
       break;
     case "Giảm dần":
       for (var i = 0; i < mangSX.length; i++) {
@@ -350,13 +358,18 @@ function sapXepSanPham(list) {
         }
       }
       list.length = 0;
-      mangSXCopy.map(function(product){
+      mangSXCopy.map(function (product) {
         list.push(product);
-      })
+      });
       break;
-
     default: ;
       break;
   }
 }
-
+// Tìm kiếm theo tên SP
+document.getElementById("inputSP").onkeyup = function () {
+  var tenTK = document.getElementById("inputSP").value;
+  var mangTK = [];
+  mangTK = productList.searchName(tenTK);
+  showProductList(mangTK);
+};

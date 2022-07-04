@@ -1,245 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web-Seller</title>
 
-    <!-- BS4 -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
-      crossorigin="anonymous"
-    />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Slick Slider -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
-    />
-    <!-- Link Swiper's CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
-    <!-- Main css -->
-    <link rel="stylesheet" href="./assets/css/main.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web-Seller</title>
 
-  <body>
-    <header>
-      <div class="header__content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <span class="navbar-brand" href="#">Web-Seller</span>
-          <div class="cart__watch">
-            <button
-              type="button"
-              class="btn btn-primary btn__cart"
-              data-toggle="modal"
-              data-target="#exampleModal"
-            >
-              <span class="navbar-icon" href="#"
-                ><i class="fa fa-shopping-cart"></i
-              ></span>
-            </button>
-            <span class="total__item">0</span>
+  <!-- BS4 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+  <!-- Slick Slider -->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- Main css -->
+  <link rel="stylesheet" href="./assets/css/main.css" />
+</head>
+
+<!-- BS4 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+  integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous" />
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+  integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+<!-- Slick Slider -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<!-- Main css -->
+<link rel="stylesheet" href="./assets/css/main.css" />
+</head>
+
+<body>
+  <header>
+    <div class="header__content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <span class="navbar-brand" href="#">Web-Seller</span>
+        <div class="cart__watch">
+          <button type="button" class="btn btn-primary btn__cart" data-toggle="modal" data-target="#exampleModal">
+            <span class="navbar-icon" href="#"><i class="fa fa-shopping-cart"></i></span>
+          </button>
+          <span class="total__item">0</span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="filter">
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <select onchange="sortProduct()" class="custom-select my-3" id="locSP">
+            <option selected>Lọc Nhãn Hiệu</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <select onchange="sortProduct()" class="custom-select my-3" id="sxPrice">
+            <option selected>Mặc định</option>
+            <option value="Tăng dần">Giá Tăng dần</option>
+            <option value="Giảm dần">Giá Giảm dần</option>
+          </select>
+        </div>
+        <div class="col-4">
+          <div class="Input_search d-flex align-items-center my-3">
+            <input type="text" id="inputSP" class="form-control" placeholder="Nhập Tên Sản Phẩm" />
+            <i class="fa-solid fa-magnifying-glass"></i>
           </div>
-        </nav>
+        </div>
       </div>
-    </header>
-
-    <section class="filter">
-      <div class="container">
+    </div>
+  </section>
+  <section class="shop__watch">
+    <div id="shop_watch" class="shop container"></div>
+  </section>
+  <section class="detail__watch">
+    <div id="detail_watch"></div>
+  </section>
+  <section id="loading">
+    <div class="loading__content">
+      <div class="dank-ass-loader">
         <div class="row">
-          <div class="col-4">
-            <select
-              onchange="sortProduct()"
-              class="custom-select my-3"
-              id="locSP"
-            >
-              <option selected>Lọc Nhãn Hiệu</option>
-            </select>
-          </div>
-          <div class="col-4">
-            <select
-              onchange="sortProduct()"
-              class="custom-select my-3"
-              id="sxPrice"
-            >
-              <option selected>Mặc định</option>
-              <option value="Tăng dần">Giá Tăng dần</option>
-              <option value="Giảm dần">Giá Giảm dần</option>
-            </select>
-          </div>
-          <div class="col-4">
-            <div class="Input_search d-flex align-items-center my-3">
-              <input
-                type="text"
-                id="inputSP"
-                class="form-control"
-                placeholder="Nhập Tên Sản Phẩm"
-              />
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-          </div>
+          <div class="arrow up outer outer-18"></div>
+          <div class="arrow down outer outer-17"></div>
+          <div class="arrow up outer outer-16"></div>
+          <div class="arrow down outer outer-15"></div>
+          <div class="arrow up outer outer-14"></div>
+        </div>
+        <div class="row">
+          <div class="arrow up outer outer-1"></div>
+          <div class="arrow down outer outer-2"></div>
+          <div class="arrow up inner inner-6"></div>
+          <div class="arrow down inner inner-5"></div>
+          <div class="arrow up inner inner-4"></div>
+          <div class="arrow down outer outer-13"></div>
+          <div class="arrow up outer outer-12"></div>
+        </div>
+        <div class="row">
+          <div class="arrow down outer outer-3"></div>
+          <div class="arrow up outer outer-4"></div>
+          <div class="arrow down inner inner-1"></div>
+          <div class="arrow up inner inner-2"></div>
+          <div class="arrow down inner inner-3"></div>
+          <div class="arrow up outer outer-11"></div>
+          <div class="arrow down outer outer-10"></div>
+        </div>
+        <div class="row">
+          <div class="arrow down outer outer-5"></div>
+          <div class="arrow up outer outer-6"></div>
+          <div class="arrow down outer outer-7"></div>
+          <div class="arrow up outer outer-8"></div>
+          <div class="arrow down outer outer-9"></div>
         </div>
       </div>
-    </section>
-    <section class="shop__watch">
-      <div id="shop_watch" class="shop container"></div>
-    </section>
-    <section class="detail__watch">
-      <div id="detail_watch"></div>
-    </section>
-    <section id="loading">
-      <div class="loading__content">
-        <div class="dank-ass-loader">
-          <div class="row">
-            <div class="arrow up outer outer-18"></div>
-            <div class="arrow down outer outer-17"></div>
-            <div class="arrow up outer outer-16"></div>
-            <div class="arrow down outer outer-15"></div>
-            <div class="arrow up outer outer-14"></div>
-          </div>
-          <div class="row">
-            <div class="arrow up outer outer-1"></div>
-            <div class="arrow down outer outer-2"></div>
-            <div class="arrow up inner inner-6"></div>
-            <div class="arrow down inner inner-5"></div>
-            <div class="arrow up inner inner-4"></div>
-            <div class="arrow down outer outer-13"></div>
-            <div class="arrow up outer outer-12"></div>
-          </div>
-          <div class="row">
-            <div class="arrow down outer outer-3"></div>
-            <div class="arrow up outer outer-4"></div>
-            <div class="arrow down inner inner-1"></div>
-            <div class="arrow up inner inner-2"></div>
-            <div class="arrow down inner inner-3"></div>
-            <div class="arrow up outer outer-11"></div>
-            <div class="arrow down outer outer-10"></div>
-          </div>
-          <div class="row">
-            <div class="arrow down outer outer-5"></div>
-            <div class="arrow up outer outer-6"></div>
-            <div class="arrow down outer outer-7"></div>
-            <div class="arrow up outer outer-8"></div>
-            <div class="arrow down outer outer-9"></div>
-          </div>
-        </div>
-        <div class="loading__text">
-          <h1>Loading...</h1>
-        </div>
+      <div class="loading__text">
+        <h1>Loading...</h1>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <!-- Modal -->
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content cart">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">GIỎ HÀNG</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
+  <section>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content cart">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">GIỎ HÀNG</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body p-0">
+            <table class="table table__cart">
+              <thead>
+                <tr>
+                  <th scope="col">Hình ảnh</th>
+                  <th scope="col">Sản phẩm</th>
+                  <th scope="col">Số lượng</th>
+                  <th scope="col">Giá</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody id="mytbody">
+              </tbody>
+            </table>
+          </div>
+          <div class="cart__footer">
+            <div class="cart__total">
+              <p id="price">Tổng tiền: <span>$0</span></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" id="purchase" data-dismiss="modal">
+                Thanh toán
+                <i class="fa fa-credit-card"></i>
+              </button>
+              <button type="button" class="btn btn-danger" id="removeAll">
+                Xóa tất cả
+                <i class="fa fa-trash"></i>
               </button>
             </div>
-            <div class="modal-body p-0">
-              <table class="table table__cart">
-                <thead>
-                  <tr>
-                    <th scope="col">Hình ảnh</th>
-                    <th scope="col">Sản phẩm</th>
-                    <th scope="col">Số lượng</th>
-                    <th scope="col">Giá</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody id="mytbody">
-                </tbody>
-              </table>
-            </div>
-            <div class="cart__footer">
-              <div class="cart__total">
-                <p id="price">Tổng tiền: <span>$0</span></p>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-success"
-                  id="purchase"
-                  data-dismiss="modal"
-                >
-                  Thanh toán
-                  <i class="fa fa-credit-card"></i>
-                </button>
-                <button type="button" class="btn btn-danger" id="removeAll">
-                  Xóa tất cả
-                  <i class="fa fa-trash"></i>
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- BS4 -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
-      crossorigin="anonymous"
-    ></script>
-
-    <div id="renderSwiper">
-      <!-- Swiper -->
-      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     </div>
+  </section>
 
-    <!-- Axios -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <!-- JS -->
-    <script src="./app/models/Products.js"></script>
-    <script src="./app/services/ProductList.js"></script>
-    <script src="./app/services/CartList.js"></script>
-    <script src="./app/controllers/main.js"></script>
-  </body>
+  <!-- BS4 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+    crossorigin="anonymous"></script>
+
+  <div id="renderSwiper">
+    <!-- Swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  </div>
+
+  <!-- Axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- JS -->
+  <script src="./app/models/Products.js"></script>
+  <script src="./app/services/ProductList.js"></script>
+  <script src="./app/services/CartList.js"></script>
+  <script src="./app/controllers/main.js"></script>
+</body>
+
 </html>
