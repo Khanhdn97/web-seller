@@ -282,7 +282,6 @@ function timKiem(value) {
   mangSX.map(function (product) {
     if (product.brand == value) {
       mangTK.push(product);
-      // console.log(mangTK);
     }
   });
   showProductList(mangTK);
@@ -292,39 +291,13 @@ function sapXepSanPham() {
   var sxPriceELE = document.getElementById("sxPrice").value;
   switch (sxPriceELE) {
     case "Tăng dần":
-      // var mangSX = productList.ArrayP;
       var mangSXCopy = [];
-      for (var i = 0; i < mangSX.length; i++) {
-        mangSXCopy.push(mangSX[i]);
-      }
-      for (var i = 0; i < mangSXCopy.length; i++) {
-        for (var j = 0; j < mangSXCopy.length - 1; j++) {
-          if (Number(mangSXCopy[j].price) > Number(mangSXCopy[j + 1].price)) {
-            var temp = mangSXCopy[j];
-            mangSXCopy[j] = mangSXCopy[j + 1];
-            mangSXCopy[j + 1] = temp;
-
-          }
-        }
-      }
+      mangSXCopy = productList.sapXepTangDan(mangSXCopy);
       showProductList(mangSXCopy);
       break;
     case "Giảm dần":
-      // var mangSX = productList.ArrayP;
       var mangSXCopy = [];
-      for (var i = 0; i < mangSX.length; i++) {
-        mangSXCopy.push(mangSX[i]);
-      }
-      for (var i = 0; i < mangSXCopy.length; i++) {
-        for (var j = 0; j < mangSXCopy.length - 1; j++) {
-          if (Number(mangSXCopy[j].price) < Number(mangSXCopy[j + 1].price)) {
-            var temp = mangSXCopy[j];
-            mangSXCopy[j] = mangSXCopy[j + 1];
-            mangSXCopy[j + 1] = temp;
-
-          }
-        }
-      }
+      mangSXCopy = productList.sapXepGiamDan(mangSXCopy);
       showProductList(mangSXCopy);
       break;
 
@@ -339,5 +312,3 @@ document.getElementById("inputSP").onkeyup = function () {
   mangTK = productList.searchName(tenTK);
   showProductList(mangTK);
 };
-
-
