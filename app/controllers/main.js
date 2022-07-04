@@ -282,9 +282,13 @@ function renderSortBrand() {
   productList.ArrayP.map(function (product) {
     var count = 0;
     for (var i = 0; i < brandList.length; i++) {
-      if (brandList[i] == product.brand) count++;
+      if (brandList[i] == product.brand) {
+        count++;
+      };
     }
-    if (count == 0) brandList.push(product.brand);
+    if (count == 0) {
+      brandList.push(product.brand);
+    };
   });
   brandList.map(function (brand) {
     document.getElementById("locSP").innerHTML += `
@@ -321,18 +325,38 @@ function sapXepSanPham(list) {
   });
   switch (sxPriceELE) {
     case "Tăng dần":
-      var mangSXCopy = [];
-      mangSXCopy = productList.sapXepTangDan(mangSXCopy);
-      // showProductList(mangSXCopy);
+      for (var i = 0; i < mangSX.length; i++) {
+        mangSXCopy.push(mangSX[i]);
+      }
+      for (var i = 0; i < mangSXCopy.length; i++) {
+        for (var j = 0; j < mangSXCopy.length - 1; j++) {
+          if (Number(mangSXCopy[j].price) > Number(mangSXCopy[j + 1].price)) {
+            var temp = mangSXCopy[j];
+            mangSXCopy[j] = mangSXCopy[j + 1];
+            mangSXCopy[j + 1] = temp;
+
+          }
+        }
+      }
       list.length = 0;
       mangSXCopy.map(function (product) {
         list.push(product);
       });
       break;
     case "Giảm dần":
-      var mangSXCopy = [];
-      mangSXCopy = productList.sapXepGiamDan(mangSXCopy);
-      // showProductList(mangSXCopy);
+      for (var i = 0; i < mangSX.length; i++) {
+        mangSXCopy.push(mangSX[i]);
+      }
+      for (var i = 0; i < mangSXCopy.length; i++) {
+        for (var j = 0; j < mangSXCopy.length - 1; j++) {
+          if (Number(mangSXCopy[j].price) < Number(mangSXCopy[j + 1].price)) {
+            var temp = mangSXCopy[j];
+            mangSXCopy[j] = mangSXCopy[j + 1];
+            mangSXCopy[j + 1] = temp;
+
+          }
+        }
+      }
       list.length = 0;
       mangSXCopy.map(function (product) {
         list.push(product);

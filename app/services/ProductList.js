@@ -18,37 +18,4 @@ function ProductList() {
         });
         return mangTK;
     };
-    this.sapXepTangDan = function (mangSapXep) {
-        // var mangSapXep = [];
-        for (var i = 0; i < mangSX.length; i++) {
-            mangSapXep.push(mangSX[i]);
-        }
-        for (var i = 0; i < mangSapXep.length; i++) {
-            for (var j = 0; j < mangSapXep.length - 1; j++) {
-                if (Number(mangSapXep[j].price) > Number(mangSapXep[j + 1].price)) {
-                    var temp = mangSapXep[j];
-                    mangSapXep[j] = mangSapXep[j + 1];
-                    mangSapXep[j + 1] = temp;
-                }
-            }
-        }
-        return mangSapXep;
-    };
-    this.sapXepGiamDan = function (mangSapXep) {
-        for (var i = 0; i < mangSX.length; i++) {
-            mangSapXep.push(mangSX[i]);
-        }
-        for (var i = 0; i < mangSapXep.length; i++) {
-            for (var j = 0; j < mangSapXep.length - 1; j++) {
-                if (Number(mangSapXep[j].price) < Number(mangSapXep[j + 1].price)) {
-                    var temp = mangSapXep[j];
-                    mangSapXep[j] = mangSapXep[j + 1];
-                    mangSapXep[j + 1] = temp;
-                }
-            }
-        }
-        return mangSapXep;
-    };
-
-
 }
