@@ -372,7 +372,7 @@ function sapXepSanPham(list) {
   }
 }
 // Tìm kiếm theo tên SP
-document.getElementById("inputSP").onkeyup = function () {
+document.getElementById("btnSearch").onclick = function () {
   var tenTK = document.getElementById("inputSP").value;
   var mangTK = [];
   mangTK = productList.searchName(tenTK);

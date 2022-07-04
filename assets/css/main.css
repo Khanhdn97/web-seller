@@ -165,6 +165,7 @@ body {
   font-size: 40px;
   font-weight: 500;
   color: white;
+  text-shadow: 0 0 15px white;
 }
 
 .arrow {
@@ -309,7 +310,7 @@ header .header__content .navbar .navbar-brand {
   font-weight: 600;
   color: var(--color-logo);
   text-shadow: 0 0 15px var(--color-logo-shadow);
-  transition: var(--transition-switch);
+  transition: all 0.6s;
 }
 
 header .header__content .navbar .navbar-brand i {

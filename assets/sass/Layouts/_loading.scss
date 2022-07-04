@@ -30,6 +30,7 @@ $time: 1;
         .loading__text {
             h1 {
                 @include styleText(40px, 500, $color);
+                text-shadow: 0 0 15px white;
             }
         }
     }
