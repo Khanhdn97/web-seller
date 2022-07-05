@@ -534,6 +534,7 @@ header .header__content .navbar .navbar__func .total__item {
   border: 1px solid var(--color-text);
   height: 100%;
   transition: all 0.6s;
+  margin-bottom: 50px;
 }
 
 .shop .watch__item {
@@ -587,7 +588,7 @@ header .header__content .navbar .navbar__func .total__item {
 .shop .watch__item .watch__text p {
   font-size: 15px;
   font-weight: 400;
-  color: green;
+  color: #14ab14;
 }
 
 .shop .watch__item .watch__overlay {

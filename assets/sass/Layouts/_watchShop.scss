@@ -8,6 +8,7 @@
     border: 1px solid var(--color-text);
     height: 100%;
     transition: all 0.6s;
+    margin-bottom: 50px;
     .watch__item {
         background-color: var(--color-bg-1);
         position: relative;
@@ -42,7 +43,7 @@
                 @include styleText(1.2rem,600,var(--color-text))
             }
             p{
-                @include styleText(15px,400,green)
+                @include styleText(15px,400,rgb(20, 171, 20))
             }
         }
         .watch__overlay{
