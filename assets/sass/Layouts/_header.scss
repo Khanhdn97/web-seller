@@ -18,9 +18,26 @@ header {
             }
             .navbar__func {
                 @include styleDisplay(flex, center, space-between);
-                .mt-ios{
+                .admin_page {
+                    a {
+                        @include styleText(20px, 500, white);
+                        display: flex;
+                        flex-direction: column;
+                        align-content: center;
+                        text-align: center;
+                        text-decoration: none;
+                        i {
+                            font-size: 30px;
+                        }
+                    }
+                    &:hover{
+                        text-shadow: 0 0 15px white;
+                    }
+                }
+                .mt-ios {
                     box-shadow: 0 0 15px var(--color-text-shadow);
                     border-radius: 20px;
+                    margin-left: 40px;
                 }
                 .cart__watch {
                     position: relative;
@@ -30,7 +47,7 @@ header {
                     border-radius: 5px;
                     border: 1px solid var(--color-text);
                     color: var(--color-text);
-                    .btn__cart{
+                    .btn__cart {
                         color: var(--color-text);
                     }
                 }

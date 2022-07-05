@@ -323,9 +323,29 @@ header .header__content .navbar .navbar__func {
   justify-content: space-between;
 }
 
+header .header__content .navbar .navbar__func .admin_page a {
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+  text-decoration: none;
+}
+
+header .header__content .navbar .navbar__func .admin_page a i {
+  font-size: 30px;
+}
+
+header .header__content .navbar .navbar__func .admin_page:hover {
+  text-shadow: 0 0 15px white;
+}
+
 header .header__content .navbar .navbar__func .mt-ios {
   box-shadow: 0 0 15px var(--color-text-shadow);
   border-radius: 20px;
+  margin-left: 40px;
 }
 
 header .header__content .navbar .navbar__func .cart__watch {

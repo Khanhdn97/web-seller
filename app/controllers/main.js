@@ -8,7 +8,6 @@ function getProductList() {
     });
     showProductList(result.data);
     renderSortBrand();
-    loading(false);
   });
   promise.catch(function (error) {
     console.log(error);
@@ -85,6 +84,7 @@ function showProductList(list) {
     document.getElementById(`small_img${product.id}`).innerHTML =
       contentDetail2;
     renderSwiper(product.id);
+    loading(false);
   });
   document.getElementById("shop_watch").innerHTML = contentShop;
 }
