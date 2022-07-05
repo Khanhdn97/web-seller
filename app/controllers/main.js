@@ -39,13 +39,13 @@ function showProductList(list) {
           <div class="modal-content">
             <div class="detail">
               <div class="detail__left">
-                <div class="swiper mySwiper2${product.id} big__img">
+                <div class="swiper mySwiperabc2${product.id} big__img">
                   <div id="big_img${product.id}" class="swiper-wrapper">
                   </div>
                   <div class="swiper-button-next"></div>
                   <div class="swiper-button-prev"></div>
                 </div>
-                <div class="swiper mySwiper${product.id} small__img">
+                <div class="swiper mySwiperABC${product.id} small__img">
                   <div id="small_img${product.id}" class="swiper-wrapper">
                   </div>
                 </div>
@@ -113,7 +113,7 @@ function renderSwiper(id) {
       spaceBetween: 20,
       slidesPerView: "auto",
     });
-    var swiper2 = new Swiper(`.mySwiperabc${i}`, {
+    var swiper2 = new Swiper(`.mySwiperabc2${i}`, {
       spaceBetween: 0,
       keyboard: {
         enabled: true,
