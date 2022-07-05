@@ -7,7 +7,7 @@ function getProductList() {
       productList.ArrayP[index] = product;
     });
     showProductList(result.data);
-    // renderSortBrand();
+    renderSortBrand();
     loading(false);
   });
   promise.catch(function (error) {
@@ -84,7 +84,7 @@ function showProductList(list) {
     document.getElementById(`big_img${product.id}`).innerHTML = contentDetail2;
     document.getElementById(`small_img${product.id}`).innerHTML =
       contentDetail2;
-    // renderSwiper(product.id);
+    renderSwiper(product.id);
   });
   document.getElementById("shop_watch").innerHTML = contentShop;
 }
@@ -107,28 +107,28 @@ function printImagesItem(link) {
   }
   return content;
 }
-// function renderSwiper(id) {
-//   for (var i = 1; i <= id; i++) {
-//     var swiper = new Swiper(`.mySwiper${i}`, {
-//       spaceBetween: 20,
-//       slidesPerView: "auto",
-//     });
-//     var swiper2 = new Swiper(`.mySwiper2${i}`, {
-//       spaceBetween: 0,
-//       keyboard: {
-//         enabled: true,
-//       },
-//       navigation: {
-//         nextEl: ".swiper-button-next",
-//         prevEl: ".swiper-button-prev",
-//       },
-//       thumbs: {
-//         swiper: swiper,
-//         autoScrollOffset: 1,
-//       },
-//     });
-//   }
-// }
+function renderSwiper(id) {
+  for (var i = 1; i <= id; i++) {
+    var swiper = new Swiper(`.mySwiperABC${i}`, {
+      spaceBetween: 20,
+      slidesPerView: "auto",
+    });
+    var swiper2 = new Swiper(`.mySwiperabc${i}`, {
+      spaceBetween: 0,
+      keyboard: {
+        enabled: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper,
+        autoScrollOffset: 1,
+      },
+    });
+  }
+}
 function loading(boolean) {
   if (boolean) {
     document.getElementById('loading').style.opacity = 1;
