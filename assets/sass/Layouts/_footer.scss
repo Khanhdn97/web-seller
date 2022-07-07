@@ -1,0 +1,22 @@
+footer{
+    background-color: var(--color-bg-2);
+    border-radius: 50px 50px 0 0;
+    .foot__container{
+        @include styleDisplay(flex, baseline, space-around);
+        .foot__left{
+            @include Size(50%,100%,30px);
+            
+        }
+        .foot__right{
+            @include Size(50%,100%,30px);
+        }
+        span{
+            @include styleText(20px,600,var(--color-text));
+            text-shadow: 0 0 15px var(--color-text-shadow);
+        }
+        ul{
+            @include styleText(20px,500,var(--color-text));
+                padding-left: 80px
+            }
+    }
+}

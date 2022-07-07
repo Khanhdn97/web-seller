@@ -6,8 +6,8 @@ function getProductList() {
     result.data.map(function (product, index) {
       productList.ArrayP[index] = product;
     });
-    showProductList(result.data);
     renderSortBrand();
+    showProductList(result.data);
     loading(false);
   });
   promise.catch(function (error) {

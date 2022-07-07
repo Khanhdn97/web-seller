@@ -773,4 +773,41 @@ header .header__content .navbar .navbar__func .total__item {
   cursor: pointer;
   border: 1px solid var(--color-text);
 }
+
+footer {
+  background-color: var(--color-bg-2);
+  border-radius: 50px 50px 0 0;
+}
+
+footer .foot__container {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
+footer .foot__container .foot__left {
+  width: 50%;
+  height: 100%;
+  padding: 30px;
+}
+
+footer .foot__container .foot__right {
+  width: 50%;
+  height: 100%;
+  padding: 30px;
+}
+
+footer .foot__container span {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text);
+  text-shadow: 0 0 15px var(--color-text-shadow);
+}
+
+footer .foot__container ul {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-text);
+  padding-left: 80px;
+}
 /*# sourceMappingURL=main.css.map */
